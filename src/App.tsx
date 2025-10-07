@@ -91,6 +91,16 @@ const VLMBubbleChart = () => {
     { name: 'Gemini-2.5-Pro', date: new Date('2025-04-07'), score: 80.1, params: 60, family: 'Google' },
   ];
 
+  const highestScore = Math.max(...data.map((d) => d.score));
+  const yAxisUpperBound = Math.ceil((highestScore + 5) / 5) * 5;
+  const yAxisTicks: number[] = [];
+  for (let tick = 0; tick <= yAxisUpperBound; tick += 10) {
+    yAxisTicks.push(tick);
+  }
+  if (yAxisTicks[yAxisTicks.length - 1] !== yAxisUpperBound) {
+    yAxisTicks.push(yAxisUpperBound);
+  }
+
   const familyColors: Record<string, string> = {
     Qwen: '#8884d8',
     Kimi: '#82ca9d',
@@ -220,10 +230,11 @@ const VLMBubbleChart = () => {
                 <YAxis
                   dataKey="y"
                   type="number"
-                  domain={[20, 85]}
+                  domain={[0, yAxisUpperBound]}
+                  ticks={yAxisTicks}
                   tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
                   label={{
-                    value: 'Average benchmark score',
+                    value: 'Benchmark score',
                     angle: -90,
                     position: 'insideLeft',
                     fill: 'var(--text-secondary)',
