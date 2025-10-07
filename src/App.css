@@ -1,4 +1,150 @@
-#root {
-  width: 100%;
+.app-shell {
   min-height: 100vh;
+  padding: clamp(24px, 5vw, 48px);
+  background: var(--background);
+  display: flex;
+}
+
+.app-content {
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 4vw, 32px);
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.app-title {
+  margin: 0;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  letter-spacing: -0.02em;
+}
+
+.app-subtitle {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.control-label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.family-select {
+  appearance: none;
+  padding: 0.55rem 2.75rem 0.55rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%23475569" d="M1.41.59 6 5.17 10.59.59 12 2l-6 6-6-6z"/></svg>') no-repeat right 0.75rem center;
+  background-size: 12px;
+  color: var(--text-primary);
+  font: inherit;
+  min-width: 220px;
+  box-shadow: 0 6px 16px -12px rgba(15, 23, 42, 0.6);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.family-select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.chart-card {
+  background: var(--surface);
+  border-radius: 18px;
+  padding: clamp(18px, 3vw, 32px);
+  box-shadow: 0 24px 60px -40px rgba(15, 23, 42, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 3vw, 24px);
+}
+
+.chart-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.chart-heading h2 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+}
+
+.chart-heading p {
+  margin: 0;
+}
+
+.chart-wrapper {
+  width: 100%;
+  height: clamp(420px, 65vh, 720px);
+}
+
+.insights-card {
+  background: var(--surface);
+  border-radius: 18px;
+  padding: clamp(18px, 3vw, 30px);
+  box-shadow: 0 18px 46px -36px rgba(15, 23, 42, 0.45);
+}
+
+.insights-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+}
+
+.insights-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.recharts-cartesian-axis-label {
+  fill: var(--text-secondary);
+}
+
+.recharts-legend-wrapper {
+  padding-top: 16px !important;
+}
+
+.recharts-default-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.recharts-legend-item-text {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .family-select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .chart-wrapper {
+    height: 420px;
+  }
 }

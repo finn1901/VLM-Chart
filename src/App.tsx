@@ -1,5 +1,16 @@
 import { useState } from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ZAxis } from 'recharts';
+import {
+  ResponsiveContainer,
+  ScatterChart,
+  Scatter,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ZAxis,
+} from 'recharts';
+import './App.css';
 
 interface DataPoint {
   name: string;
@@ -24,7 +35,7 @@ interface TooltipProps {
 
 const VLMBubbleChart = () => {
   const [selectedFamily, setSelectedFamily] = useState<string>('all');
-  
+
   const data: DataPoint[] = [
     { name: 'Qwen-VL', date: new Date('2023-08-24'), score: 28.3, params: 9.6, family: 'Qwen' },
     { name: 'Qwen-VL-Chat', date: new Date('2023-08-24'), score: 45.2, params: 9.6, family: 'Qwen' },
@@ -81,36 +92,37 @@ const VLMBubbleChart = () => {
   ];
 
   const familyColors: Record<string, string> = {
-    'Qwen': '#8884d8',
-    'Kimi': '#82ca9d',
-    'SmolVLM': '#ffc658',
-    'CogVLM': '#ff8042',
-    'Llama': '#a4de6c',
-    'LLaVA': '#d0ed57',
-    'InternVL': '#8dd1e1',
-    'Phi': '#83a6ed',
-    'DeepSeek': '#8884d8',
-    'BlueLM': '#ea5545',
-    'OpenAI': '#f46a9b',
-    'Anthropic': '#ef9b20',
-    'Google': '#4285f4',
-    'Granite': '#ede15b',
-    'PaliGemma': '#95e1d3',
-    'NVLM': '#38ada9',
-    'GLM': '#ee5a6f',
-    'Molmo': '#c7ecee',
-    'ShareGPT': '#786fa6',
-    'Pixtral': '#f8a5c2',
-    'MiMo': '#63cdda',
-    'InstructBLIP': '#cf6a87',
-    'Other': '#999999',
+    Qwen: '#8884d8',
+    Kimi: '#82ca9d',
+    SmolVLM: '#ffc658',
+    CogVLM: '#ff8042',
+    Llama: '#a4de6c',
+    LLaVA: '#d0ed57',
+    InternVL: '#8dd1e1',
+    Phi: '#83a6ed',
+    DeepSeek: '#8884d8',
+    BlueLM: '#ea5545',
+    OpenAI: '#f46a9b',
+    Anthropic: '#ef9b20',
+    Google: '#4285f4',
+    Granite: '#ede15b',
+    PaliGemma: '#95e1d3',
+    NVLM: '#38ada9',
+    GLM: '#ee5a6f',
+    Molmo: '#c7ecee',
+    ShareGPT: '#786fa6',
+    Pixtral: '#f8a5c2',
+    MiMo: '#63cdda',
+    InstructBLIP: '#cf6a87',
+    Other: '#999999',
   };
 
-  const filteredData = selectedFamily === 'all' 
-    ? data 
-    : data.filter(d => d.family === selectedFamily);
+  const families = ['all', ...Object.keys(familyColors)];
 
-  const processedData: ProcessedDataPoint[] = filteredData.map(d => ({
+  const filteredData =
+    selectedFamily === 'all' ? data : data.filter((d) => d.family === selectedFamily);
+
+  const processedData: ProcessedDataPoint[] = filteredData.map((d) => ({
     ...d,
     x: d.date.getTime(),
     y: d.score,
@@ -119,104 +131,141 @@ const VLMBubbleChart = () => {
 
   const CustomTooltip = ({ active, payload }: TooltipProps) => {
     if (active && payload && payload.length) {
-      const data = payload[0].payload;
+      const dataPoint = payload[0].payload;
       return (
-        <div style={{ 
-          backgroundColor: 'white', 
-          padding: '10px', 
-          border: '1px solid #ccc',
-          borderRadius: '4px'
-        }}>
-          <p style={{ fontWeight: 'bold', margin: '0 0 5px 0' }}>{data.name}</p>
-          <p style={{ margin: '2px 0' }}>Score: {data.score}</p>
-          <p style={{ margin: '2px 0' }}>Parameters: {data.params}B</p>
-          <p style={{ margin: '2px 0' }}>Date: {data.date.toLocaleDateString()}</p>
-          <p style={{ margin: '2px 0' }}>Family: {data.family}</p>
+        <div
+          style={{
+            backgroundColor: 'white',
+            padding: '10px 12px',
+            border: '1px solid var(--border)',
+            borderRadius: '8px',
+            boxShadow: '0 12px 24px -18px rgba(15, 23, 42, 0.45)',
+          }}
+        >
+          <p style={{ fontWeight: 600, margin: '0 0 6px 0', color: 'var(--text-primary)' }}>
+            {dataPoint.name}
+          </p>
+          <p style={{ margin: '0 0 4px 0', color: 'var(--text-secondary)' }}>Score: {dataPoint.score}</p>
+          <p style={{ margin: '0 0 4px 0', color: 'var(--text-secondary)' }}>
+            Parameters: {dataPoint.params}B
+          </p>
+          <p style={{ margin: '0 0 4px 0', color: 'var(--text-secondary)' }}>
+            Date: {dataPoint.date.toLocaleDateString()}
+          </p>
+          <p style={{ margin: 0, color: 'var(--text-secondary)' }}>Family: {dataPoint.family}</p>
         </div>
       );
     }
     return null;
   };
 
-  const families = ['all', ...Object.keys(familyColors)];
-
   return (
-    <div style={{ width: '100%', height: '100vh', padding: '20px', backgroundColor: '#f5f5f5' }}>
-      <div style={{ marginBottom: '20px', textAlign: 'center' }}>
-        <h2 style={{ margin: '0 0 10px 0' }}>VLM Landscape Survey</h2>
-        <p style={{ margin: '0 0 15px 0', color: '#666' }}>
-          Performance vs. Time (Bubble size = Model parameters)
-        </p>
-        <div style={{ marginBottom: '10px' }}>
-          <label style={{ marginRight: '10px' }}>Filter by family: </label>
-          <select 
-            value={selectedFamily} 
-            onChange={(e) => setSelectedFamily(e.target.value)}
-            style={{ padding: '5px 10px', borderRadius: '4px', border: '1px solid #ccc' }}
-          >
-            {families.map(f => (
-              <option key={f} value={f}>{f === 'all' ? 'All Families' : f}</option>
-            ))}
-          </select>
-        </div>
-      </div>
+    <div className="app-shell">
+      <div className="app-content">
+        <header className="app-header">
+          <h1 className="app-title">Vision-Language Model Landscape</h1>
+          <p className="app-subtitle">
+            Benchmark scores from 2023–2025 show how quickly multimodal systems are improving. Bubble size
+            represents parameter count.
+          </p>
+          <div className="controls">
+            <label className="control-label" htmlFor="family-filter">
+              Filter by family
+            </label>
+            <select
+              id="family-filter"
+              className="family-select"
+              value={selectedFamily}
+              onChange={(e) => setSelectedFamily(e.target.value)}
+            >
+              {families.map((family) => (
+                <option key={family} value={family}>
+                  {family === 'all' ? 'All families' : family}
+                </option>
+              ))}
+            </select>
+          </div>
+        </header>
 
-      <ResponsiveContainer width="100%" height="80%">
-        <ScatterChart margin={{ top: 20, right: 20, bottom: 60, left: 60 }}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis 
-            dataKey="x" 
-            type="number" 
-            domain={['dataMin', 'dataMax']}
-            tickFormatter={(timestamp) => new Date(timestamp).toLocaleDateString('en-US', { year: '2-digit', month: 'short' })}
-            label={{ value: 'Date of Benchmarking', position: 'insideBottom', offset: -10 }}
-          />
-          <YAxis 
-            dataKey="y" 
-            type="number"
-            domain={[20, 85]}
-            label={{ value: 'Average Benchmark Score', angle: -90, position: 'insideLeft' }}
-          />
-          <ZAxis dataKey="z" range={[50, 1500]} />
-          <Tooltip content={<CustomTooltip />} />
-          <Legend 
-            verticalAlign="bottom" 
-            height={36}
-            wrapperStyle={{ paddingTop: '20px' }}
-          />
-          
-          {Object.keys(familyColors).map(family => {
-            const familyData = processedData.filter(d => d.family === family);
-            if (familyData.length === 0) return null;
-            
-            return (
-              <Scatter
-                key={family}
-                name={family}
-                data={familyData}
-                fill={familyColors[family]}
-                fillOpacity={0.6}
-              />
-            );
-          })}
-        </ScatterChart>
-      </ResponsiveContainer>
+        <section className="chart-card">
+          <div className="chart-heading">
+            <h2>Performance over time</h2>
+            <p>Hover to inspect specific model details and compare families across releases.</p>
+          </div>
 
-      <div style={{ 
-        marginTop: '20px', 
-        padding: '15px', 
-        backgroundColor: 'white', 
-        borderRadius: '8px',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-      }}>
-        <h3 style={{ margin: '0 0 10px 0' }}>Key Insights:</h3>
-        <ul style={{ margin: 0, paddingLeft: '20px' }}>
-          <li>60+ models evaluated from 2023-2025</li>
-          <li>Performance improved from ~30 to 80+ average score</li>
-          <li>Efficient small models (2-4B) now match larger models from 2024</li>
-          <li>InternVL3, BlueLM, and Gemini families show strong recent performance</li>
-          <li>Clear trend: newer models achieve better scores with smaller sizes</li>
-        </ul>
+          <div className="chart-wrapper">
+            <ResponsiveContainer width="100%" height="100%">
+              <ScatterChart margin={{ top: 20, right: 20, bottom: 60, left: 60 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                <XAxis
+                  dataKey="x"
+                  type="number"
+                  domain={['dataMin', 'dataMax']}
+                  tickFormatter={(timestamp) =>
+                    new Date(timestamp).toLocaleDateString('en-US', {
+                      year: '2-digit',
+                      month: 'short',
+                    })
+                  }
+                  tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
+                  label={{
+                    value: 'Date of benchmarking',
+                    position: 'insideBottom',
+                    offset: -10,
+                    fill: 'var(--text-secondary)',
+                    style: { fontSize: 13 },
+                  }}
+                />
+                <YAxis
+                  dataKey="y"
+                  type="number"
+                  domain={[20, 85]}
+                  tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
+                  label={{
+                    value: 'Average benchmark score',
+                    angle: -90,
+                    position: 'insideLeft',
+                    fill: 'var(--text-secondary)',
+                    style: { fontSize: 13 },
+                  }}
+                />
+                <ZAxis dataKey="z" range={[50, 1500]} />
+                <Tooltip content={<CustomTooltip />} />
+                <Legend
+                  verticalAlign="bottom"
+                  wrapperStyle={{ paddingTop: 20, color: 'var(--text-secondary)' }}
+                  iconType="circle"
+                />
+
+                {Object.keys(familyColors).map((family) => {
+                  const familyData = processedData.filter((d) => d.family === family);
+                  if (familyData.length === 0) return null;
+
+                  return (
+                    <Scatter
+                      key={family}
+                      name={family}
+                      data={familyData}
+                      fill={familyColors[family]}
+                      fillOpacity={0.65}
+                    />
+                  );
+                })}
+              </ScatterChart>
+            </ResponsiveContainer>
+          </div>
+        </section>
+
+        <section className="insights-card">
+          <h3>Key insights</h3>
+          <ul>
+            <li>60+ models evaluated from 2023–2025</li>
+            <li>Performance improved from ~30 to 80+ average score</li>
+            <li>Efficient 2–4B models now rival larger 2024 releases</li>
+            <li>InternVL3, BlueLM, and Gemini families show strong recent performance</li>
+            <li>Clear trend: newer models achieve better scores with smaller sizes</li>
+          </ul>
+        </section>
       </div>
     </div>
   );
