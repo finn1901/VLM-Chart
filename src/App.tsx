@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   ResponsiveContainer,
   ScatterChart,
@@ -9,6 +9,8 @@ import {
   Tooltip,
   Legend,
   ZAxis,
+  type TooltipContentProps,
+  type TooltipProps as RechartsTooltipProps,
 } from 'recharts';
 import './App.css';
 
@@ -26,72 +28,68 @@ interface ProcessedDataPoint extends DataPoint {
   z: number;
 }
 
-interface TooltipProps {
-  active?: boolean;
-  payload?: Array<{
-    payload: ProcessedDataPoint;
-  }>;
-}
-
 const VLMBubbleChart = () => {
   const [selectedFamily, setSelectedFamily] = useState<string>('all');
 
-  const data: DataPoint[] = [
-    { name: 'Qwen-VL', date: new Date('2023-08-24'), score: 28.3, params: 9.6, family: 'Qwen' },
-    { name: 'Qwen-VL-Chat', date: new Date('2023-08-24'), score: 45.2, params: 9.6, family: 'Qwen' },
-    { name: 'Qwen2-VL-2B', date: new Date('2024-09-12'), score: 57.3, params: 2, family: 'Qwen' },
-    { name: 'Qwen2-VL-8B', date: new Date('2024-09-12'), score: 67.1, params: 8, family: 'Qwen' },
-    { name: 'Qwen2.5-VL-7B', date: new Date('2025-02-02'), score: 70.9, params: 7, family: 'Qwen' },
-    { name: 'Qwen2.5-VL-3B', date: new Date('2025-02-02'), score: 64.5, params: 3, family: 'Qwen' },
-    { name: 'Kimi-VL-A3B-Thinking', date: new Date('2025-04-23'), score: 65.9, params: 16.4, family: 'Kimi' },
-    { name: 'Kimi-VL-A3B-Instruct', date: new Date('2025-04-14'), score: 69.1, params: 16.4, family: 'Kimi' },
-    { name: 'Kimi-VL-A3B-Thinking-2506', date: new Date('2025-07-02'), score: 74.3, params: 16.4, family: 'Kimi' },
-    { name: 'SmolVLM-256M', date: new Date('2025-01-27'), score: 34.4, params: 0.26, family: 'SmolVLM' },
-    { name: 'SmolVLM-500M', date: new Date('2025-01-27'), score: 41.3, params: 0.51, family: 'SmolVLM' },
-    { name: 'SmolVLM-Instruct', date: new Date('2025-01-27'), score: 48.1, params: 2.3, family: 'SmolVLM' },
-    { name: 'SmolVLM-Synthetic', date: new Date('2025-01-27'), score: 52.2, params: 2.3, family: 'SmolVLM' },
-    { name: 'SmolVLM2', date: new Date('2025-03-13'), score: 44.8, params: 2.25, family: 'SmolVLM' },
-    { name: 'CogVLM-17B-Chat', date: new Date('2024-01-03'), score: 47.9, params: 17, family: 'CogVLM' },
-    { name: 'CogVLM2-19B-Chat', date: new Date('2024-05-31'), score: 56.3, params: 19, family: 'CogVLM' },
-    { name: 'Llama-3.2-11B', date: new Date('2024-10-07'), score: 57.7, params: 11, family: 'Llama' },
-    { name: 'Llama-3.2-90B', date: new Date('2024-10-19'), score: 63.4, params: 88.6, family: 'Llama' },
-    { name: 'LLaVA-OneVision-7B', date: new Date('2024-09-16'), score: 60.2, params: 8, family: 'LLaVA' },
-    { name: 'PaliGemma-3B', date: new Date('2024-05-17'), score: 46.5, params: 3, family: 'PaliGemma' },
-    { name: 'NVLM-D-72B', date: new Date('2024-10-19'), score: 67.6, params: 79.4, family: 'NVLM' },
-    { name: 'GLM-4V', date: new Date('2024-05-20'), score: 60.8, params: 10, family: 'GLM' },
-    { name: 'GLM-4V-Plus', date: new Date('2024-12-11'), score: 71.4, params: 15, family: 'GLM' },
-    { name: 'GLM-4V-Plus-20250111', date: new Date('2025-01-25'), score: 76.7, params: 15, family: 'GLM' },
-    { name: 'MolmoE-1B', date: new Date('2024-10-21'), score: 46.1, params: 7.2, family: 'Molmo' },
-    { name: 'Molmo-7B-D', date: new Date('2024-10-12'), score: 57.4, params: 8, family: 'Molmo' },
-    { name: 'InternVL3-1B', date: new Date('2025-04-14'), score: 57.0, params: 0.94, family: 'InternVL' },
-    { name: 'InternVL3-2B', date: new Date('2025-04-14'), score: 64.5, params: 2.09, family: 'InternVL' },
-    { name: 'InternVL3-8B', date: new Date('2025-04-14'), score: 73.6, params: 7.94, family: 'InternVL' },
-    { name: 'InternVL3-9B', date: new Date('2025-04-14'), score: 72.6, params: 9, family: 'InternVL' },
-    { name: 'Phi-3-Vision', date: new Date('2024-05-31'), score: 53.6, params: 4.2, family: 'Phi' },
-    { name: 'Phi-3.5-Vision', date: new Date('2024-08-28'), score: 53, params: 4, family: 'Phi' },
-    { name: 'Phi-4-MultiModal', date: new Date('2025-03-13'), score: 64.7, params: 5.57, family: 'Phi' },
-    { name: 'DeepSeek-VL-1.3B', date: new Date('2024-03-21'), score: 39.7, params: 2, family: 'DeepSeek' },
-    { name: 'DeepSeek-VL-7B', date: new Date('2024-03-21'), score: 46.2, params: 7.2, family: 'DeepSeek' },
-    { name: 'DeepSeek-VL2-Tiny', date: new Date('2025-01-01'), score: 58.1, params: 3.4, family: 'DeepSeek' },
-    { name: 'DeepSeek-VL2-Small', date: new Date('2025-01-01'), score: 64.5, params: 16.1, family: 'DeepSeek' },
-    { name: 'DeepSeek-VL2', date: new Date('2025-01-01'), score: 66.4, params: 27.5, family: 'DeepSeek' },
-    { name: 'BlueLM-V-3B', date: new Date('2024-10-30'), score: 66.1, params: 3, family: 'BlueLM' },
-    { name: 'BlueLM-2.5-3B', date: new Date('2025-07-16'), score: 70.8, params: 2.9, family: 'BlueLM' },
-    { name: 'BlueLM-2.6-3B', date: new Date('2025-09-17'), score: 78.4, params: 3, family: 'BlueLM' },
-    { name: 'R-4B', date: new Date('2025-08-11'), score: 75.5, params: 4, family: 'Other' },
-    { name: 'GPT-5', date: new Date('2025-08-14'), score: 79.9, params: 50, family: 'OpenAI' },
-    { name: 'ShareGPT4V-7B', date: new Date('2023-12-08'), score: 39.8, params: 7.2, family: 'ShareGPT' },
-    { name: 'ShareGPT4V-13B', date: new Date('2023-12-08'), score: 42.5, params: 13.4, family: 'ShareGPT' },
-    { name: 'Pixtral-12B', date: new Date('2024-09-16'), score: 61.0, params: 13, family: 'Pixtral' },
-    { name: 'Claude3.5-Sonnet', date: new Date('2024-06-24'), score: 67.9, params: 40, family: 'Anthropic' },
-    { name: 'Claude3.5-Sonnet-20241022', date: new Date('2024-11-06'), score: 70.6, params: 40, family: 'Anthropic' },
-    { name: 'granite-vision-3.1-2b', date: new Date('2025-06-20'), score: 57.3, params: 2.98, family: 'Granite' },
-    { name: 'granite-vision-3.2-2b', date: new Date('2025-06-20'), score: 57.9, params: 2.98, family: 'Granite' },
-    { name: 'granite-vision-3.3-2b', date: new Date('2025-06-20'), score: 58.7, params: 2.98, family: 'Granite' },
-    { name: 'MiMo-VL-7B', date: new Date('2025-07-02'), score: 65.6, params: 8.31, family: 'MiMo' },
-    { name: 'InstructBLIP-7B', date: new Date('2023-05-11'), score: 31.1, params: 8, family: 'InstructBLIP' },
-    { name: 'Gemini-2.5-Pro', date: new Date('2025-04-07'), score: 80.1, params: 60, family: 'Google' },
-  ];
+  const data = useMemo<DataPoint[]>(
+    () => [
+      { name: 'Qwen-VL', date: new Date('2023-08-24'), score: 28.3, params: 9.6, family: 'Qwen' },
+      { name: 'Qwen-VL-Chat', date: new Date('2023-08-24'), score: 45.2, params: 9.6, family: 'Qwen' },
+      { name: 'Qwen2-VL-2B', date: new Date('2024-09-12'), score: 57.3, params: 2, family: 'Qwen' },
+      { name: 'Qwen2-VL-8B', date: new Date('2024-09-12'), score: 67.1, params: 8, family: 'Qwen' },
+      { name: 'Qwen2.5-VL-7B', date: new Date('2025-02-02'), score: 70.9, params: 7, family: 'Qwen' },
+      { name: 'Qwen2.5-VL-3B', date: new Date('2025-02-02'), score: 64.5, params: 3, family: 'Qwen' },
+      { name: 'Kimi-VL-A3B-Thinking', date: new Date('2025-04-23'), score: 65.9, params: 16.4, family: 'Kimi' },
+      { name: 'Kimi-VL-A3B-Instruct', date: new Date('2025-04-14'), score: 69.1, params: 16.4, family: 'Kimi' },
+      { name: 'Kimi-VL-A3B-Thinking-2506', date: new Date('2025-07-02'), score: 74.3, params: 16.4, family: 'Kimi' },
+      { name: 'SmolVLM-256M', date: new Date('2025-01-27'), score: 34.4, params: 0.26, family: 'SmolVLM' },
+      { name: 'SmolVLM-500M', date: new Date('2025-01-27'), score: 41.3, params: 0.51, family: 'SmolVLM' },
+      { name: 'SmolVLM-Instruct', date: new Date('2025-01-27'), score: 48.1, params: 2.3, family: 'SmolVLM' },
+      { name: 'SmolVLM-Synthetic', date: new Date('2025-01-27'), score: 52.2, params: 2.3, family: 'SmolVLM' },
+      { name: 'SmolVLM2', date: new Date('2025-03-13'), score: 44.8, params: 2.25, family: 'SmolVLM' },
+      { name: 'CogVLM-17B-Chat', date: new Date('2024-01-03'), score: 47.9, params: 17, family: 'CogVLM' },
+      { name: 'CogVLM2-19B-Chat', date: new Date('2024-05-31'), score: 56.3, params: 19, family: 'CogVLM' },
+      { name: 'Llama-3.2-11B', date: new Date('2024-10-07'), score: 57.7, params: 11, family: 'Llama' },
+      { name: 'Llama-3.2-90B', date: new Date('2024-10-19'), score: 63.4, params: 88.6, family: 'Llama' },
+      { name: 'LLaVA-OneVision-7B', date: new Date('2024-09-16'), score: 60.2, params: 8, family: 'LLaVA' },
+      { name: 'PaliGemma-3B', date: new Date('2024-05-17'), score: 46.5, params: 3, family: 'PaliGemma' },
+      { name: 'NVLM-D-72B', date: new Date('2024-10-19'), score: 67.6, params: 79.4, family: 'NVLM' },
+      { name: 'GLM-4V', date: new Date('2024-05-20'), score: 60.8, params: 10, family: 'GLM' },
+      { name: 'GLM-4V-Plus', date: new Date('2024-12-11'), score: 71.4, params: 15, family: 'GLM' },
+      { name: 'GLM-4V-Plus-20250111', date: new Date('2025-01-25'), score: 76.7, params: 15, family: 'GLM' },
+      { name: 'MolmoE-1B', date: new Date('2024-10-21'), score: 46.1, params: 7.2, family: 'Molmo' },
+      { name: 'Molmo-7B-D', date: new Date('2024-10-12'), score: 57.4, params: 8, family: 'Molmo' },
+      { name: 'InternVL3-1B', date: new Date('2025-04-14'), score: 57.0, params: 0.94, family: 'InternVL' },
+      { name: 'InternVL3-2B', date: new Date('2025-04-14'), score: 64.5, params: 2.09, family: 'InternVL' },
+      { name: 'InternVL3-8B', date: new Date('2025-04-14'), score: 73.6, params: 7.94, family: 'InternVL' },
+      { name: 'InternVL3-9B', date: new Date('2025-04-14'), score: 72.6, params: 9, family: 'InternVL' },
+      { name: 'Phi-3-Vision', date: new Date('2024-05-31'), score: 53.6, params: 4.2, family: 'Phi' },
+      { name: 'Phi-3.5-Vision', date: new Date('2024-08-28'), score: 53, params: 4, family: 'Phi' },
+      { name: 'Phi-4-MultiModal', date: new Date('2025-03-13'), score: 64.7, params: 5.57, family: 'Phi' },
+      { name: 'DeepSeek-VL-1.3B', date: new Date('2024-03-21'), score: 39.7, params: 2, family: 'DeepSeek' },
+      { name: 'DeepSeek-VL-7B', date: new Date('2024-03-21'), score: 46.2, params: 7.2, family: 'DeepSeek' },
+      { name: 'DeepSeek-VL2-Tiny', date: new Date('2025-01-01'), score: 58.1, params: 3.4, family: 'DeepSeek' },
+      { name: 'DeepSeek-VL2-Small', date: new Date('2025-01-01'), score: 64.5, params: 16.1, family: 'DeepSeek' },
+      { name: 'DeepSeek-VL2', date: new Date('2025-01-01'), score: 66.4, params: 27.5, family: 'DeepSeek' },
+      { name: 'BlueLM-V-3B', date: new Date('2024-10-30'), score: 66.1, params: 3, family: 'BlueLM' },
+      { name: 'BlueLM-2.5-3B', date: new Date('2025-07-16'), score: 70.8, params: 2.9, family: 'BlueLM' },
+      { name: 'BlueLM-2.6-3B', date: new Date('2025-09-17'), score: 78.4, params: 3, family: 'BlueLM' },
+      { name: 'R-4B', date: new Date('2025-08-11'), score: 75.5, params: 4, family: 'Other' },
+      { name: 'GPT-5', date: new Date('2025-08-14'), score: 79.9, params: 50, family: 'OpenAI' },
+      { name: 'ShareGPT4V-7B', date: new Date('2023-12-08'), score: 39.8, params: 7.2, family: 'ShareGPT' },
+      { name: 'ShareGPT4V-13B', date: new Date('2023-12-08'), score: 42.5, params: 13.4, family: 'ShareGPT' },
+      { name: 'Pixtral-12B', date: new Date('2024-09-16'), score: 61.0, params: 13, family: 'Pixtral' },
+      { name: 'Claude3.5-Sonnet', date: new Date('2024-06-24'), score: 67.9, params: 40, family: 'Anthropic' },
+      { name: 'Claude3.5-Sonnet-20241022', date: new Date('2024-11-06'), score: 70.6, params: 40, family: 'Anthropic' },
+      { name: 'granite-vision-3.1-2b', date: new Date('2025-06-20'), score: 57.3, params: 2.98, family: 'Granite' },
+      { name: 'granite-vision-3.2-2b', date: new Date('2025-06-20'), score: 57.9, params: 2.98, family: 'Granite' },
+      { name: 'granite-vision-3.3-2b', date: new Date('2025-06-20'), score: 58.7, params: 2.98, family: 'Granite' },
+      { name: 'MiMo-VL-7B', date: new Date('2025-07-02'), score: 65.6, params: 8.31, family: 'MiMo' },
+      { name: 'InstructBLIP-7B', date: new Date('2023-05-11'), score: 31.1, params: 8, family: 'InstructBLIP' },
+      { name: 'Gemini-2.5-Pro', date: new Date('2025-04-07'), score: 80.1, params: 60, family: 'Google' },
+    ],
+    [],
+  );
 
   const highestScore = Math.max(...data.map((d) => d.score));
   const yAxisUpperBound = Math.ceil((highestScore + 5) / 5) * 5;
@@ -129,21 +127,59 @@ const VLMBubbleChart = () => {
     Other: '#999999',
   };
 
-  const families = ['all', ...Object.keys(familyColors)];
+  const availableFamilies = useMemo(
+    () => Array.from(new Set(data.map((d) => d.family))),
+    [data],
+  );
 
-  const filteredData =
-    selectedFamily === 'all' ? data : data.filter((d) => d.family === selectedFamily);
+  const families = ['all', ...availableFamilies];
+
+  const filteredData = useMemo(
+    () => (selectedFamily === 'all' ? data : data.filter((d) => d.family === selectedFamily)),
+    [data, selectedFamily],
+  );
+
+  const minBubbleSize = 80;
+  const maxBubbleSize = 800;
+
+  const paramValues = filteredData.map((d) => d.params);
+  const hasParams = paramValues.length > 0;
+  const minParams = hasParams ? Math.min(...paramValues) : 0;
+  const maxParams = hasParams ? Math.max(...paramValues) : 0;
+
+  const scaleParamsToBubble = (params: number) => {
+    if (!hasParams) {
+      return (minBubbleSize + maxBubbleSize) / 2;
+    }
+    if (minParams === maxParams) {
+      return maxParams > 0 ? maxBubbleSize : minBubbleSize;
+    }
+    const safeParams = Math.max(params, 0.0001);
+    const logMin = Math.log10(Math.max(minParams, 0.0001));
+    const logMax = Math.log10(Math.max(maxParams, 0.0001));
+    const logValue = Math.log10(safeParams);
+
+    return (
+      minBubbleSize + ((logValue - logMin) / (logMax - logMin)) * (maxBubbleSize - minBubbleSize)
+    );
+  };
 
   const processedData: ProcessedDataPoint[] = filteredData.map((d) => ({
     ...d,
     x: d.date.getTime(),
     y: d.score,
-    z: d.params * 100,
+    z: scaleParamsToBubble(d.params),
   }));
 
-  const CustomTooltip = ({ active, payload }: TooltipProps) => {
+  const CustomTooltip = ({ active, payload }: TooltipContentProps<number, string>) => {
     if (active && payload && payload.length) {
-      const dataPoint = payload[0].payload;
+      const hoveredEntry = payload[payload.length - 1];
+      const dataPoint = hoveredEntry?.payload as ProcessedDataPoint | undefined;
+
+      if (!dataPoint) {
+        return null;
+      }
+
       return (
         <div
           style={{
@@ -171,6 +207,10 @@ const VLMBubbleChart = () => {
     }
     return null;
   };
+
+  const renderTooltip: RechartsTooltipProps<number, string>['content'] = (props) => (
+    <CustomTooltip {...props} />
+  );
 
   return (
     <div className="app-shell">
@@ -243,15 +283,15 @@ const VLMBubbleChart = () => {
                     style: { fontSize: 13 },
                   }}
                 />
-                <ZAxis dataKey="z" range={[50, 1500]} />
-                <Tooltip content={<CustomTooltip />} />
+                <ZAxis dataKey="z" domain={[minBubbleSize, maxBubbleSize]} range={[minBubbleSize, maxBubbleSize]} />
+                <Tooltip content={renderTooltip} payloadUniqBy={(entry) => entry?.payload?.name} />
                 <Legend
                   verticalAlign="bottom"
                   wrapperStyle={{ paddingTop: 20, color: 'var(--text-secondary)' }}
                   iconType="circle"
                 />
 
-                {Object.keys(familyColors).map((family) => {
+                {availableFamilies.map((family) => {
                   const familyData = processedData.filter((d) => d.family === family);
                   if (familyData.length === 0) return null;
 
