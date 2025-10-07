@@ -135,11 +135,12 @@ const VLMBubbleChart = () => {
       return (
         <div
           style={{
-            backgroundColor: 'white',
+            backgroundColor: 'var(--surface-elevated)',
             padding: '10px 12px',
             border: '1px solid var(--border)',
             borderRadius: '8px',
-            boxShadow: '0 12px 24px -18px rgba(15, 23, 42, 0.45)',
+            boxShadow: '0 12px 28px -18px rgba(2, 6, 23, 0.7)',
+            color: 'var(--text-primary)',
           }}
         >
           <p style={{ fontWeight: 600, margin: '0 0 6px 0', color: 'var(--text-primary)' }}>
@@ -196,7 +197,7 @@ const VLMBubbleChart = () => {
           <div className="chart-wrapper">
             <ResponsiveContainer width="100%" height="100%">
               <ScatterChart margin={{ top: 20, right: 20, bottom: 60, left: 60 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--grid)" />
                 <XAxis
                   dataKey="x"
                   type="number"
