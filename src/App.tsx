@@ -142,33 +142,27 @@ const VLMBubbleChart = () => {
   const minBubbleSize = 80;
   const maxBubbleSize = 800;
 
-  const paramValues = filteredData.map((d) => d.params);
+  const paramValues = filteredData.map((d) => Math.max(d.params, 0));
   const hasParams = paramValues.length > 0;
   const minParams = hasParams ? Math.min(...paramValues) : 0;
   const maxParams = hasParams ? Math.max(...paramValues) : 0;
 
-  const scaleParamsToBubble = (params: number) => {
+  const zDomain = useMemo<[number, number]>(() => {
     if (!hasParams) {
-      return (minBubbleSize + maxBubbleSize) / 2;
+      return [0, 1];
     }
     if (minParams === maxParams) {
-      return maxParams > 0 ? maxBubbleSize : minBubbleSize;
+      const upper = maxParams === 0 ? 1 : maxParams;
+      return [0, upper];
     }
-    const safeParams = Math.max(params, 0.0001);
-    const logMin = Math.log10(Math.max(minParams, 0.0001));
-    const logMax = Math.log10(Math.max(maxParams, 0.0001));
-    const logValue = Math.log10(safeParams);
-
-    return (
-      minBubbleSize + ((logValue - logMin) / (logMax - logMin)) * (maxBubbleSize - minBubbleSize)
-    );
-  };
+    return [minParams, maxParams];
+  }, [hasParams, maxParams, minParams]);
 
   const processedData: ProcessedDataPoint[] = filteredData.map((d) => ({
     ...d,
     x: d.date.getTime(),
     y: d.score,
-    z: scaleParamsToBubble(d.params),
+    z: Math.max(d.params, 0),
   }));
 
   const CustomTooltip = ({ active, payload }: TooltipContentProps<number, string>) => {
@@ -283,7 +277,12 @@ const VLMBubbleChart = () => {
                     style: { fontSize: 13 },
                   }}
                 />
-                <ZAxis dataKey="z" domain={[minBubbleSize, maxBubbleSize]} range={[minBubbleSize, maxBubbleSize]} />
+                <ZAxis
+                  dataKey="z"
+                  type="number"
+                  domain={zDomain}
+                  range={[minBubbleSize, maxBubbleSize]}
+                />
                 <Tooltip content={renderTooltip} payloadUniqBy={(entry) => entry?.payload?.name} />
                 <Legend
                   verticalAlign="bottom"
