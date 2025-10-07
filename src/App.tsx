@@ -41,6 +41,8 @@ const VLMBubbleChart = () => {
     { name: 'Qwen-VL-Chat', date: new Date('2023-08-24'), score: 45.2, params: 9.6, family: 'Qwen' },
     { name: 'Qwen2-VL-2B', date: new Date('2024-09-12'), score: 57.3, params: 2, family: 'Qwen' },
     { name: 'Qwen2-VL-8B', date: new Date('2024-09-12'), score: 67.1, params: 8, family: 'Qwen' },
+    { name: 'Qwen2.5-VL-7B', date: new Date('2025-02-02'), score: 70.9, params: 7, family: 'Qwen' },
+    { name: 'Qwen2.5-VL-3B', date: new Date('2025-02-02'), score: 64.5, params: 3, family: 'Qwen' },
     { name: 'Kimi-VL-A3B-Thinking', date: new Date('2025-04-23'), score: 65.9, params: 16.4, family: 'Kimi' },
     { name: 'Kimi-VL-A3B-Instruct', date: new Date('2025-04-14'), score: 69.1, params: 16.4, family: 'Kimi' },
     { name: 'Kimi-VL-A3B-Thinking-2506', date: new Date('2025-07-02'), score: 74.3, params: 16.4, family: 'Kimi' },
