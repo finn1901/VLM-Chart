@@ -9,8 +9,6 @@ import {
   Tooltip,
   Legend,
   ZAxis,
-  type TooltipContentProps,
-  type TooltipProps as RechartsTooltipProps,
 } from 'recharts';
 import './App.css';
 
@@ -30,6 +28,7 @@ interface ProcessedDataPoint extends DataPoint {
 
 const VLMBubbleChart = () => {
   const [selectedFamily, setSelectedFamily] = useState<string>('all');
+  const [selectedModel, setSelectedModel] = useState<string | null>(null);
 
   const data = useMemo<DataPoint[]>(
     () => [
@@ -45,20 +44,27 @@ const VLMBubbleChart = () => {
       { name: 'SmolVLM-256M', date: new Date('2025-01-27'), score: 34.4, params: 0.26, family: 'SmolVLM' },
       { name: 'SmolVLM-500M', date: new Date('2025-01-27'), score: 41.3, params: 0.51, family: 'SmolVLM' },
       { name: 'SmolVLM-Instruct', date: new Date('2025-01-27'), score: 48.1, params: 2.3, family: 'SmolVLM' },
+      { name: 'SmolVLM-Instruct-DPO', date: new Date('2025-01-27'), score: 44.8, params: 2.3, family: 'SmolVLM' },
       { name: 'SmolVLM-Synthetic', date: new Date('2025-01-27'), score: 52.2, params: 2.3, family: 'SmolVLM' },
       { name: 'SmolVLM2', date: new Date('2025-03-13'), score: 44.8, params: 2.25, family: 'SmolVLM' },
+      { name: 'SmolVLM2-256M', date: new Date('2025-03-13'), score: 30.8, params: 0.26, family: 'SmolVLM' },
+      { name: 'SmolVLM2-500M', date: new Date('2025-03-13'), score: 40.9, params: 0.51, family: 'SmolVLM' },
       { name: 'CogVLM-17B-Chat', date: new Date('2024-01-03'), score: 47.9, params: 17, family: 'CogVLM' },
       { name: 'CogVLM2-19B-Chat', date: new Date('2024-05-31'), score: 56.3, params: 19, family: 'CogVLM' },
       { name: 'Llama-3.2-11B', date: new Date('2024-10-07'), score: 57.7, params: 11, family: 'Llama' },
       { name: 'Llama-3.2-90B', date: new Date('2024-10-19'), score: 63.4, params: 88.6, family: 'Llama' },
       { name: 'LLaVA-OneVision-7B', date: new Date('2024-09-16'), score: 60.2, params: 8, family: 'LLaVA' },
+      { name: 'LLaVA-OneVision-7B (SI)', date: new Date('2024-09-17'), score: 61.2, params: 8, family: 'LLaVA' },
       { name: 'PaliGemma-3B', date: new Date('2024-05-17'), score: 46.5, params: 3, family: 'PaliGemma' },
+      { name: 'Mantis-8B-Fuyu', date: new Date('2024-09-07'), score: 34.2, params: 8, family: 'Mantis' },
       { name: 'NVLM-D-72B', date: new Date('2024-10-19'), score: 67.6, params: 79.4, family: 'NVLM' },
       { name: 'GLM-4V', date: new Date('2024-05-20'), score: 60.8, params: 10, family: 'GLM' },
       { name: 'GLM-4V-Plus', date: new Date('2024-12-11'), score: 71.4, params: 15, family: 'GLM' },
       { name: 'GLM-4V-Plus-20250111', date: new Date('2025-01-25'), score: 76.7, params: 15, family: 'GLM' },
       { name: 'MolmoE-1B', date: new Date('2024-10-21'), score: 46.1, params: 7.2, family: 'Molmo' },
+      { name: 'Molmo-7B-O', date: new Date('2024-10-20'), score: 52.0, params: 8, family: 'Molmo' },
       { name: 'Molmo-7B-D', date: new Date('2024-10-12'), score: 57.4, params: 8, family: 'Molmo' },
+      { name: 'Yi-VL-6B', date: new Date('2024-01-25'), score: 41.1, params: 6.6, family: 'Yi' },
       { name: 'InternVL3-1B', date: new Date('2025-04-14'), score: 57.0, params: 0.94, family: 'InternVL' },
       { name: 'InternVL3-2B', date: new Date('2025-04-14'), score: 64.5, params: 2.09, family: 'InternVL' },
       { name: 'InternVL3-8B', date: new Date('2025-04-14'), score: 73.6, params: 7.94, family: 'InternVL' },
@@ -124,6 +130,8 @@ const VLMBubbleChart = () => {
     Pixtral: '#f8a5c2',
     MiMo: '#63cdda',
     InstructBLIP: '#cf6a87',
+    Mantis: '#b8e994',
+    Yi: '#e55039',
     Other: '#999999',
   };
 
@@ -139,8 +147,8 @@ const VLMBubbleChart = () => {
     [data, selectedFamily],
   );
 
-  const minBubbleSize = 80;
-  const maxBubbleSize = 800;
+  const minBubbleSize = 200;
+  const maxBubbleSize = 1200;
 
   const paramValues = filteredData.map((d) => Math.max(d.params, 0));
   const hasParams = paramValues.length > 0;
@@ -165,46 +173,42 @@ const VLMBubbleChart = () => {
     z: Math.max(d.params, 0),
   }));
 
-  const CustomTooltip = ({ active, payload }: TooltipContentProps<number, string>) => {
-    if (active && payload && payload.length) {
-      const hoveredEntry = payload[payload.length - 1];
-      const dataPoint = hoveredEntry?.payload as ProcessedDataPoint | undefined;
-
-      if (!dataPoint) {
-        return null;
-      }
-
-      return (
-        <div
-          style={{
-            backgroundColor: 'var(--surface-elevated)',
-            padding: '10px 12px',
-            border: '1px solid var(--border)',
-            borderRadius: '8px',
-            boxShadow: '0 12px 28px -18px rgba(2, 6, 23, 0.7)',
-            color: 'var(--text-primary)',
-          }}
-        >
-          <p style={{ fontWeight: 600, margin: '0 0 6px 0', color: 'var(--text-primary)' }}>
-            {dataPoint.name}
-          </p>
-          <p style={{ margin: '0 0 4px 0', color: 'var(--text-secondary)' }}>Score: {dataPoint.score}</p>
-          <p style={{ margin: '0 0 4px 0', color: 'var(--text-secondary)' }}>
-            Parameters: {dataPoint.params}B
-          </p>
-          <p style={{ margin: '0 0 4px 0', color: 'var(--text-secondary)' }}>
-            Date: {dataPoint.date.toLocaleDateString()}
-          </p>
-          <p style={{ margin: 0, color: 'var(--text-secondary)' }}>Family: {dataPoint.family}</p>
-        </div>
-      );
+  // Custom tooltip that shows info for the selected model only
+  const CustomTooltip = () => {
+    if (!selectedModel) {
+      return null;
     }
-    return null;
-  };
 
-  const renderTooltip: RechartsTooltipProps<number, string>['content'] = (props) => (
-    <CustomTooltip {...props} />
-  );
+    const dataPoint = processedData.find(d => d.name === selectedModel);
+    if (!dataPoint) {
+      return null;
+    }
+
+    return (
+      <div
+        style={{
+          backgroundColor: 'var(--surface-elevated)',
+          padding: '10px 12px',
+          border: '1px solid var(--border)',
+          borderRadius: '8px',
+          boxShadow: '0 12px 28px -18px rgba(2, 6, 23, 0.7)',
+          color: 'var(--text-primary)',
+        }}
+      >
+        <p style={{ fontWeight: 600, margin: '0 0 6px 0', color: 'var(--text-primary)' }}>
+          {dataPoint.name}
+        </p>
+        <p style={{ margin: '0 0 4px 0', color: 'var(--text-secondary)' }}>Score: {dataPoint.score}</p>
+        <p style={{ margin: '0 0 4px 0', color: 'var(--text-secondary)' }}>
+          Parameters: {dataPoint.params}B
+        </p>
+        <p style={{ margin: '0 0 4px 0', color: 'var(--text-secondary)' }}>
+          Date: {dataPoint.date.toLocaleDateString()}
+        </p>
+        <p style={{ margin: 0, color: 'var(--text-secondary)' }}>Family: {dataPoint.family}</p>
+      </div>
+    );
+  };
 
   return (
     <div className="app-shell">
@@ -223,7 +227,10 @@ const VLMBubbleChart = () => {
               id="family-filter"
               className="family-select"
               value={selectedFamily}
-              onChange={(e) => setSelectedFamily(e.target.value)}
+              onChange={(e) => {
+                setSelectedFamily(e.target.value);
+                setSelectedModel(null); // Clear selection when changing family
+              }}
             >
               {families.map((family) => (
                 <option key={family} value={family}>
@@ -237,7 +244,26 @@ const VLMBubbleChart = () => {
         <section className="chart-card">
           <div className="chart-heading">
             <h2>Performance over time</h2>
-            <p>Hover to inspect specific model details and compare families across releases.</p>
+            <p>
+              Click on any bubble to inspect model details.
+              {selectedModel && (
+                <button 
+                  onClick={() => setSelectedModel(null)} 
+                  style={{ 
+                    marginLeft: '8px', 
+                    cursor: 'pointer',
+                    padding: '4px 8px',
+                    fontSize: '12px',
+                    borderRadius: '4px',
+                    border: '1px solid var(--border)',
+                    backgroundColor: 'var(--surface)',
+                    color: 'var(--text-primary)'
+                  }}
+                >
+                  Clear selection
+                </button>
+              )}
+            </p>
           </div>
 
           <div className="chart-wrapper">
@@ -283,7 +309,12 @@ const VLMBubbleChart = () => {
                   domain={zDomain}
                   range={[minBubbleSize, maxBubbleSize]}
                 />
-                <Tooltip content={renderTooltip} payloadUniqBy={(entry) => entry?.payload?.name} />
+                <Tooltip 
+                  content={<CustomTooltip />}
+                  cursor={false}
+                  trigger="click"
+                  active={!!selectedModel}
+                />
                 <Legend
                   verticalAlign="bottom"
                   wrapperStyle={{ paddingTop: 20, color: 'var(--text-secondary)' }}
@@ -300,7 +331,24 @@ const VLMBubbleChart = () => {
                       name={family}
                       data={familyData}
                       fill={familyColors[family]}
-                      fillOpacity={0.65}
+                      onClick={(data) => {
+                        setSelectedModel(data.name);
+                      }}
+                      style={{ cursor: 'pointer' }}
+                      shape={(props: any) => {
+                        const isSelected = props.payload?.name === selectedModel;
+                        return (
+                          <circle
+                            cx={props.cx}
+                            cy={props.cy}
+                            r={props.payload?.z ? Math.sqrt(props.payload.z) : 5}
+                            fill={props.fill}
+                            fillOpacity={isSelected ? 1 : 0.65}
+                            stroke={isSelected ? '#fff' : 'none'}
+                            strokeWidth={isSelected ? 3 : 0}
+                          />
+                        );
+                      }}
                     />
                   );
                 })}
@@ -312,7 +360,7 @@ const VLMBubbleChart = () => {
         <section className="insights-card">
           <h3>Key insights</h3>
           <ul>
-            <li>60+ models evaluated from 2023–2025</li>
+            <li>65+ models evaluated from 2023–2025</li>
             <li>Performance improved from ~30 to 80+ average score</li>
             <li>Efficient 2–4B models now rival larger 2024 releases</li>
             <li>InternVL3, BlueLM, and Gemini families show strong recent performance</li>
