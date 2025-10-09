@@ -1,0 +1,47 @@
+.copy-link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 6px 20px -12px rgba(2, 6, 23, 0.75);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.copy-link-button:hover {
+  background: var(--surface-elevated);
+  border-color: #2563eb;
+  box-shadow: 0 8px 24px -10px rgba(37, 99, 235, 0.4);
+}
+
+.copy-link-button:active {
+  transform: scale(0.98);
+}
+
+.copy-link-button svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .copy-link-button span {
+    display: none;
+  }
+
+  .copy-link-button {
+    padding: 0.55rem;
+    min-width: 40px;
+    justify-content: center;
+  }
+}
