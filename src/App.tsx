@@ -9,7 +9,9 @@ import { MultiFamilyFilter } from './components/Controls/MultiFamilyFilter';
 import { SearchInput } from './components/Controls/SearchInput';
 import { CopyLinkButton } from './components/Controls/CopyLinkButton';
 import { ExportButton } from './components/Controls/ExportButton';
+import { ExportChartButton } from './components/Controls/ExportChartButton';
 import { ComparisonToggle } from './components/Controls/ComparisonToggle';
+import { RangeFilters, type RangeFilterValues } from './components/Controls/RangeFilters';
 import { BubbleChart } from './components/Chart/BubbleChart';
 import { ComparisonPanel } from './components/Chart/ComparisonPanel';
 import { useModelData } from './hooks/useModelData';
@@ -22,6 +24,7 @@ const VLMBubbleChart = () => {
   const { urlState, updateUrlState } = useUrlState();
   const [searchInput, setSearchInput] = useState<string>(urlState.search);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const chartCardRef = useRef<HTMLElement>(null);
 
   // Debounce search input to avoid excessive re-renders
   const debouncedSearch = useDebounce(searchInput, 300);
@@ -36,6 +39,58 @@ const VLMBubbleChart = () => {
 
   const [comparisonMode, setComparisonMode] = useState(false);
   const [showComparisonPanel, setShowComparisonPanel] = useState(false);
+
+  // Calculate bounds for range filters
+  const scoreBounds = useMemo(() => {
+    if (data.length === 0) return { min: 0, max: 100 };
+    const scores = data.map((d) => d.score);
+    return {
+      min: Math.floor(Math.min(...scores)),
+      max: Math.ceil(Math.max(...scores)),
+    };
+  }, [data]);
+
+  const dateBounds = useMemo(() => {
+    if (data.length === 0) {
+      const now = Date.now();
+      return { min: now, max: now };
+    }
+    const dates = data.map((d) => d.date.getTime());
+    return {
+      min: Math.min(...dates),
+      max: Math.max(...dates),
+    };
+  }, [data]);
+
+  const paramsBounds = useMemo(() => {
+    if (data.length === 0) return { min: 0, max: 100 };
+    const params = data.map((d) => d.params);
+    return {
+      min: Math.floor(Math.min(...params)),
+      max: Math.ceil(Math.max(...params)),
+    };
+  }, [data]);
+
+  const [rangeFilters, setRangeFilters] = useState<RangeFilterValues>({
+    scoreMin: scoreBounds.min,
+    scoreMax: scoreBounds.max,
+    dateMin: dateBounds.min,
+    dateMax: dateBounds.max,
+    paramsMin: paramsBounds.min,
+    paramsMax: paramsBounds.max,
+  });
+
+  // Update range filters when bounds change
+  useEffect(() => {
+    setRangeFilters({
+      scoreMin: scoreBounds.min,
+      scoreMax: scoreBounds.max,
+      dateMin: dateBounds.min,
+      dateMax: dateBounds.max,
+      paramsMin: paramsBounds.min,
+      paramsMax: paramsBounds.max,
+    });
+  }, [scoreBounds, dateBounds, paramsBounds]);
 
   // Update search input when URL changes (browser back/forward)
   useEffect(() => {
@@ -61,8 +116,18 @@ const VLMBubbleChart = () => {
     return data;
   }, [data, selectedFamilies]);
 
-  // Apply fuzzy search to family-filtered data
-  const fuzzySearchResults = useFuzzySearch(filteredByFamily, searchQuery);
+  // Apply range filters
+  const filteredByRanges = useMemo(() => {
+    return filteredByFamily.filter((d) => {
+      const withinScoreRange = d.score >= rangeFilters.scoreMin && d.score <= rangeFilters.scoreMax;
+      const withinDateRange = d.date.getTime() >= rangeFilters.dateMin && d.date.getTime() <= rangeFilters.dateMax;
+      const withinParamsRange = d.params >= rangeFilters.paramsMin && d.params <= rangeFilters.paramsMax;
+      return withinScoreRange && withinDateRange && withinParamsRange;
+    });
+  }, [filteredByFamily, rangeFilters]);
+
+  // Apply fuzzy search to filtered data
+  const fuzzySearchResults = useFuzzySearch(filteredByRanges, searchQuery);
 
   const filteredData = useMemo(() => {
     return fuzzySearchResults;
@@ -210,7 +275,20 @@ const VLMBubbleChart = () => {
               selectedFamilies={selectedFamilies}
               onFamiliesChange={handleFamiliesChange}
             />
-            <SearchInput ref={searchInputRef} value={searchInput} onChange={handleSearchChange} />
+            <SearchInput
+              ref={searchInputRef}
+              value={searchInput}
+              onChange={handleSearchChange}
+              suggestions={processedData}
+              onSelectSuggestion={handleModelSelect}
+            />
+            <RangeFilters
+              values={rangeFilters}
+              onChange={setRangeFilters}
+              scoreBounds={scoreBounds}
+              dateBounds={dateBounds}
+              paramsBounds={paramsBounds}
+            />
             <ComparisonToggle
               enabled={comparisonMode}
               count={comparedModels.length}
@@ -219,10 +297,11 @@ const VLMBubbleChart = () => {
             />
             <CopyLinkButton />
             <ExportButton data={processedData} />
+            <ExportChartButton chartRef={chartCardRef} />
           </div>
         </header>
 
-        <section className="chart-card">
+        <section className="chart-card" ref={chartCardRef}>
           <div className="chart-heading">
             <h2>Performance over time</h2>
             <p>

@@ -1,0 +1,114 @@
+.export-chart-wrapper {
+  position: relative;
+}
+
+.export-chart-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 6px 20px -12px rgba(2, 6, 23, 0.75);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.1s ease,
+    opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.export-chart-button:hover:not(:disabled) {
+  background: var(--surface-elevated);
+  border-color: #f59e0b;
+  box-shadow: 0 8px 24px -10px rgba(245, 158, 11, 0.4);
+}
+
+.export-chart-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.export-chart-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.export-chart-button svg {
+  flex-shrink: 0;
+}
+
+.export-chart-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 180px;
+  padding: 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 12px 36px -8px rgba(2, 6, 23, 0.8);
+  z-index: 100;
+  animation: slideDown 0.2s ease-out;
+}
+
+.export-menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.export-menu-item:hover {
+  background: var(--surface-elevated);
+}
+
+.export-menu-item svg {
+  flex-shrink: 0;
+  color: var(--text-secondary);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .export-chart-button span {
+    display: none;
+  }
+
+  .export-chart-button {
+    padding: 0.55rem;
+    min-width: 40px;
+    justify-content: center;
+  }
+
+  .export-chart-menu {
+    right: auto;
+    left: 0;
+  }
+}
