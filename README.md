@@ -8,10 +8,12 @@ An interactive visualization tool for exploring and comparing Vision-Language Mo
 
 ### Core Functionality
 - 📊 **Interactive Bubble Chart** - Visualize models over time with parameter count represented by bubble size
+- ⚖️ **Customizable Benchmark Weights** - Adjust importance of different benchmarks to match your use case
+- 🎯 **Quick Presets** - OCR-focused, Math-focused, Reasoning-heavy, and more
 - 🔍 **Real-time Search** - Filter models by name with instant results
 - 🏷️ **Family Filtering** - Filter by model family (Qwen, GPT, Claude, etc.)
-- 📈 **65+ Models** - Comprehensive dataset from 2023-2025
-- 💡 **Model Selection** - Click any bubble to view detailed model information
+- 📈 **284+ Models** - Comprehensive dataset from 2023-2025
+- 💡 **Model Selection** - Click any bubble to view detailed benchmark scores
 
 ### User Experience
 - ⌨️ **Keyboard Shortcuts**:

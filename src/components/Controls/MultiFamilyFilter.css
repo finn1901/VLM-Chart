@@ -1,8 +1,6 @@
 .multi-family-filter {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  display: inline-block;
 }
 
 .multi-family-button {

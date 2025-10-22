@@ -1,17 +1,25 @@
 import { useEffect, useState } from 'react';
 import modelsData from '../data/models.json';
-import type { DataPoint } from '../types';
+import type { DataPoint, BenchmarkScores } from '../types';
+
+interface TransformedDataPoint {
+  name: string;
+  date: Date;
+  score: number;
+  params: number;
+  family: string;
+  benchmarks: BenchmarkScores;
+  paramsEstimated?: boolean; // True if params are estimated, not from official source
+}
 
 interface UseModelDataReturn {
-  data: Array<{ name: string; date: Date; score: number; params: number; family: string }>;
+  data: TransformedDataPoint[];
   isLoading: boolean;
   error: string | null;
 }
 
 export const useModelData = (): UseModelDataReturn => {
-  const [data, setData] = useState<Array<{ name: string; date: Date; score: number; params: number; family: string }>>(
-    [],
-  );
+  const [data, setData] = useState<TransformedDataPoint[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -20,8 +28,13 @@ export const useModelData = (): UseModelDataReturn => {
       setIsLoading(true);
       // Transform the JSON data (with string dates) to our runtime format (with Date objects)
       const transformedData = modelsData.map((item: DataPoint) => ({
-        ...item,
+        name: item.name,
         date: new Date(item.date),
+        score: item.score,
+        params: item.params,
+        family: item.family,
+        benchmarks: item.benchmarks,
+        paramsEstimated: item.paramsEstimated,
       }));
       setData(transformedData);
       setError(null);

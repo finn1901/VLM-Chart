@@ -1,8 +1,6 @@
 .search-input-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
+  position: relative;
+  display: inline-block;
 }
 
 .search-input-container {

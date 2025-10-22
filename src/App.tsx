@@ -1,6 +1,6 @@
 import { useMemo, useState, useCallback, useRef, useEffect } from 'react';
 import './App.css';
-import type { ProcessedDataPoint } from './types';
+import type { ProcessedDataPoint, BenchmarkWeights } from './types';
 import { LoadingSkeleton } from './components/States/LoadingSkeleton';
 import { ErrorState } from './components/States/ErrorState';
 import { EmptyState } from './components/States/EmptyState';
@@ -8,10 +8,10 @@ import { NoResultsState } from './components/States/NoResultsState';
 import { MultiFamilyFilter } from './components/Controls/MultiFamilyFilter';
 import { SearchInput } from './components/Controls/SearchInput';
 import { CopyLinkButton } from './components/Controls/CopyLinkButton';
-import { ExportButton } from './components/Controls/ExportButton';
 import { ExportChartButton } from './components/Controls/ExportChartButton';
 import { ComparisonToggle } from './components/Controls/ComparisonToggle';
 import { RangeFilters, type RangeFilterValues } from './components/Controls/RangeFilters';
+import { WeightControls } from './components/Controls/WeightControls';
 import { BubbleChart } from './components/Chart/BubbleChart';
 import { ComparisonPanel } from './components/Chart/ComparisonPanel';
 import { useModelData } from './hooks/useModelData';
@@ -19,6 +19,7 @@ import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
 import { useDebounce } from './hooks/useDebounce';
 import { useUrlState } from './hooks/useUrlState';
 import { useFuzzySearch } from './hooks/useFuzzySearch';
+import { DEFAULT_WEIGHTS, calculateWeightedScore } from './utils/weightedScoring';
 
 const VLMBubbleChart = () => {
   const { urlState, updateUrlState } = useUrlState();
@@ -39,6 +40,7 @@ const VLMBubbleChart = () => {
 
   const [comparisonMode, setComparisonMode] = useState(false);
   const [showComparisonPanel, setShowComparisonPanel] = useState(false);
+  const [benchmarkWeights, setBenchmarkWeights] = useState<BenchmarkWeights>(DEFAULT_WEIGHTS);
 
   // Calculate bounds for range filters
   const scoreBounds = useMemo(() => {
@@ -135,13 +137,23 @@ const VLMBubbleChart = () => {
 
   const processedData: ProcessedDataPoint[] = useMemo(
     () =>
-      filteredData.map((d) => ({
-        ...d,
-        x: d.date.getTime(),
-        y: d.score,
-        z: Math.max(d.params, 0),
-      })),
-    [filteredData],
+      filteredData.map((d) => {
+        // Calculate weighted score based on current weights
+        const weightedScore = calculateWeightedScore(d.benchmarks, benchmarkWeights);
+        return {
+          name: d.name,
+          date: d.date,
+          score: weightedScore, // Override score with weighted version
+          params: d.params,
+          family: d.family,
+          benchmarks: d.benchmarks, // Keep benchmark scores for tooltip
+          paramsEstimated: d.paramsEstimated, // Preserve estimation flag
+          x: d.date.getTime(),
+          y: weightedScore,
+          z: Math.max(d.params, 0),
+        };
+      }),
+    [filteredData, benchmarkWeights],
   );
 
   const filterInfo = useMemo(() => {
@@ -270,49 +282,58 @@ const VLMBubbleChart = () => {
             parameter count.
           </p>
           <div className="controls-wrapper">
-            <MultiFamilyFilter
-              families={families}
-              selectedFamilies={selectedFamilies}
-              onFamiliesChange={handleFamiliesChange}
-            />
-            <SearchInput
-              ref={searchInputRef}
-              value={searchInput}
-              onChange={handleSearchChange}
-              suggestions={processedData}
-              onSelectSuggestion={handleModelSelect}
-            />
-            <RangeFilters
-              values={rangeFilters}
-              onChange={setRangeFilters}
-              scoreBounds={scoreBounds}
-              dateBounds={dateBounds}
-              paramsBounds={paramsBounds}
-            />
-            <ComparisonToggle
-              enabled={comparisonMode}
-              count={comparedModels.length}
-              onToggle={handleToggleComparisonMode}
-              onCompare={handleShowComparison}
-            />
-            <CopyLinkButton />
-            <ExportButton data={processedData} />
-            <ExportChartButton chartRef={chartCardRef} />
+            {/* Primary Filter Controls */}
+            <div className="controls-row">
+              <SearchInput
+                ref={searchInputRef}
+                value={searchInput}
+                onChange={handleSearchChange}
+                suggestions={processedData}
+                onSelectSuggestion={handleModelSelect}
+              />
+              <MultiFamilyFilter
+                families={families}
+                selectedFamilies={selectedFamilies}
+                onFamiliesChange={handleFamiliesChange}
+              />
+            </div>
           </div>
         </header>
 
         <section className="chart-card" ref={chartCardRef}>
           <div className="chart-heading">
-            <h2>Performance over time</h2>
-            <p>
-              Click on any bubble to inspect model details.
-              {selectedModel && (
-                <button onClick={() => updateUrlState({ model: null })} className="clear-selection-btn">
-                  Clear selection
-                </button>
-              )}
-            </p>
-            {filterInfo && <p className="filter-info">{filterInfo}</p>}
+            <div className="chart-heading-main">
+              <div className="chart-title-section">
+                <h2>Performance over time</h2>
+                <p>
+                  Click on any bubble to inspect model details.
+                  {selectedModel && (
+                    <button onClick={() => updateUrlState({ model: null })} className="clear-selection-btn">
+                      Clear selection
+                    </button>
+                  )}
+                </p>
+                {filterInfo && <p className="filter-info">{filterInfo}</p>}
+              </div>
+              <div className="chart-actions">
+                <RangeFilters
+                  values={rangeFilters}
+                  onChange={setRangeFilters}
+                  scoreBounds={scoreBounds}
+                  dateBounds={dateBounds}
+                  paramsBounds={paramsBounds}
+                />
+                <WeightControls weights={benchmarkWeights} onWeightsChange={setBenchmarkWeights} />
+                <ComparisonToggle
+                  enabled={comparisonMode}
+                  count={comparedModels.length}
+                  onToggle={handleToggleComparisonMode}
+                  onCompare={handleShowComparison}
+                />
+                <CopyLinkButton />
+                <ExportChartButton chartRef={chartCardRef} data={processedData} />
+              </div>
+            </div>
           </div>
 
           {processedData.length === 0 ? (

@@ -16,7 +16,8 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "prepare": "husky"
+    "prepare": "husky",
+    "update-models": "python scripts/update-models.py"
   },
   "dependencies": {
     "fuse.js": "^7.1.0",

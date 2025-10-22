@@ -69,15 +69,13 @@ export const MultiFamilyFilter = ({ families, selectedFamilies, onFamiliesChange
 
   return (
     <div className="multi-family-filter" ref={dropdownRef}>
-      <label className="control-label" htmlFor="family-filter-button">
-        Filter by family
-      </label>
       <button
         id="family-filter-button"
         className="multi-family-button"
         onClick={handleToggle}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
+        title="Filter by model family"
       >
         <span>{getButtonLabel()}</span>
         <svg

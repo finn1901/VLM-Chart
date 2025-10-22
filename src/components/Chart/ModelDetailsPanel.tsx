@@ -61,7 +61,14 @@ export const ModelDetailsPanel = ({ model, onClose }: ModelDetailsPanelProps) =>
               <div className="model-details-metric">
                 <span className="model-details-metric-label">Parameters</span>
                 <span className="model-details-metric-value">{model.params}B</span>
-                <span className="model-details-metric-category">{sizeCategory}</span>
+                <span className="model-details-metric-category">
+                  {sizeCategory}
+                  {model.paramsEstimated && (
+                    <span style={{ fontSize: '0.85em', fontStyle: 'italic', color: '#e6b800', marginLeft: '0.35rem' }}>
+                      • Estimated
+                    </span>
+                  )}
+                </span>
               </div>
               <div className="model-details-metric">
                 <span className="model-details-metric-label">Efficiency</span>

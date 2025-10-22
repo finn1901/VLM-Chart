@@ -90,9 +90,6 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
 
     return (
       <div className="search-input-wrapper" ref={containerRef}>
-        <label className="control-label" htmlFor="model-search">
-          Search models
-        </label>
         <div className="search-input-container">
           <svg
             className="search-icon"

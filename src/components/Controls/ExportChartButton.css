@@ -48,7 +48,7 @@
   position: absolute;
   top: calc(100% + 0.5rem);
   right: 0;
-  min-width: 180px;
+  min-width: 240px;
   padding: 0.5rem;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -56,6 +56,25 @@
   box-shadow: 0 12px 36px -8px rgba(2, 6, 23, 0.8);
   z-index: 100;
   animation: slideDown 0.2s ease-out;
+}
+
+.export-menu-section {
+  padding: 0.25rem 0;
+}
+
+.export-menu-label {
+  padding: 0.5rem 1rem 0.25rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.export-menu-divider {
+  height: 1px;
+  margin: 0.5rem 0.5rem;
+  background: var(--border);
 }
 
 .export-menu-item {
@@ -68,7 +87,7 @@
   background: transparent;
   color: var(--text-primary);
   font: inherit;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 500;
   text-align: left;
   cursor: pointer;
@@ -76,8 +95,13 @@
   transition: background-color 0.15s ease;
 }
 
-.export-menu-item:hover {
+.export-menu-item:hover:not(:disabled) {
   background: var(--surface-elevated);
+}
+
+.export-menu-item:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .export-menu-item svg {

@@ -1,63 +1,4886 @@
 [
-  { "name": "Qwen-VL", "date": "2023-08-24", "score": 28.3, "params": 9.6, "family": "Qwen" },
-  { "name": "Qwen-VL-Chat", "date": "2023-08-24", "score": 45.2, "params": 9.6, "family": "Qwen" },
-  { "name": "Qwen2-VL-2B", "date": "2024-09-12", "score": 57.3, "params": 2, "family": "Qwen" },
-  { "name": "Qwen2-VL-8B", "date": "2024-09-12", "score": 67.1, "params": 8, "family": "Qwen" },
-  { "name": "Qwen2.5-VL-7B", "date": "2025-02-02", "score": 70.9, "params": 7, "family": "Qwen" },
-  { "name": "Qwen2.5-VL-3B", "date": "2025-02-02", "score": 64.5, "params": 3, "family": "Qwen" },
-  { "name": "Kimi-VL-A3B-Thinking", "date": "2025-04-23", "score": 65.9, "params": 16.4, "family": "Kimi" },
-  { "name": "Kimi-VL-A3B-Instruct", "date": "2025-04-14", "score": 69.1, "params": 16.4, "family": "Kimi" },
-  { "name": "Kimi-VL-A3B-Thinking-2506", "date": "2025-07-02", "score": 74.3, "params": 16.4, "family": "Kimi" },
-  { "name": "SmolVLM-256M", "date": "2025-01-27", "score": 34.4, "params": 0.26, "family": "SmolVLM" },
-  { "name": "SmolVLM-500M", "date": "2025-01-27", "score": 41.3, "params": 0.51, "family": "SmolVLM" },
-  { "name": "SmolVLM-Instruct", "date": "2025-01-27", "score": 48.1, "params": 2.3, "family": "SmolVLM" },
-  { "name": "SmolVLM-Instruct-DPO", "date": "2025-01-27", "score": 44.8, "params": 2.3, "family": "SmolVLM" },
-  { "name": "SmolVLM-Synthetic", "date": "2025-01-27", "score": 52.2, "params": 2.3, "family": "SmolVLM" },
-  { "name": "SmolVLM2", "date": "2025-03-13", "score": 44.8, "params": 2.25, "family": "SmolVLM" },
-  { "name": "SmolVLM2-256M", "date": "2025-03-13", "score": 30.8, "params": 0.26, "family": "SmolVLM" },
-  { "name": "SmolVLM2-500M", "date": "2025-03-13", "score": 40.9, "params": 0.51, "family": "SmolVLM" },
-  { "name": "CogVLM-17B-Chat", "date": "2024-01-03", "score": 47.9, "params": 17, "family": "CogVLM" },
-  { "name": "CogVLM2-19B-Chat", "date": "2024-05-31", "score": 56.3, "params": 19, "family": "CogVLM" },
-  { "name": "Llama-3.2-11B", "date": "2024-10-07", "score": 57.7, "params": 11, "family": "Llama" },
-  { "name": "Llama-3.2-90B", "date": "2024-10-19", "score": 63.4, "params": 88.6, "family": "Llama" },
-  { "name": "LLaVA-OneVision-7B", "date": "2024-09-16", "score": 60.2, "params": 8, "family": "LLaVA" },
-  { "name": "LLaVA-OneVision-7B (SI)", "date": "2024-09-17", "score": 61.2, "params": 8, "family": "LLaVA" },
-  { "name": "PaliGemma-3B", "date": "2024-05-17", "score": 46.5, "params": 3, "family": "PaliGemma" },
-  { "name": "Mantis-8B-Fuyu", "date": "2024-09-07", "score": 34.2, "params": 8, "family": "Mantis" },
-  { "name": "NVLM-D-72B", "date": "2024-10-19", "score": 67.6, "params": 79.4, "family": "NVLM" },
-  { "name": "GLM-4V", "date": "2024-05-20", "score": 60.8, "params": 10, "family": "GLM" },
-  { "name": "GLM-4V-Plus", "date": "2024-12-11", "score": 71.4, "params": 15, "family": "GLM" },
-  { "name": "GLM-4V-Plus-20250111", "date": "2025-01-25", "score": 76.7, "params": 15, "family": "GLM" },
-  { "name": "MolmoE-1B", "date": "2024-10-21", "score": 46.1, "params": 7.2, "family": "Molmo" },
-  { "name": "Molmo-7B-O", "date": "2024-10-20", "score": 52.0, "params": 8, "family": "Molmo" },
-  { "name": "Molmo-7B-D", "date": "2024-10-12", "score": 57.4, "params": 8, "family": "Molmo" },
-  { "name": "Yi-VL-6B", "date": "2024-01-25", "score": 41.1, "params": 6.6, "family": "Yi" },
-  { "name": "InternVL3-1B", "date": "2025-04-14", "score": 57.0, "params": 0.94, "family": "InternVL" },
-  { "name": "InternVL3-2B", "date": "2025-04-14", "score": 64.5, "params": 2.09, "family": "InternVL" },
-  { "name": "InternVL3-8B", "date": "2025-04-14", "score": 73.6, "params": 7.94, "family": "InternVL" },
-  { "name": "InternVL3-9B", "date": "2025-04-14", "score": 72.6, "params": 9, "family": "InternVL" },
-  { "name": "Phi-3-Vision", "date": "2024-05-31", "score": 53.6, "params": 4.2, "family": "Phi" },
-  { "name": "Phi-3.5-Vision", "date": "2024-08-28", "score": 53, "params": 4, "family": "Phi" },
-  { "name": "Phi-4-MultiModal", "date": "2025-03-13", "score": 64.7, "params": 5.57, "family": "Phi" },
-  { "name": "DeepSeek-VL-1.3B", "date": "2024-03-21", "score": 39.7, "params": 2, "family": "DeepSeek" },
-  { "name": "DeepSeek-VL-7B", "date": "2024-03-21", "score": 46.2, "params": 7.2, "family": "DeepSeek" },
-  { "name": "DeepSeek-VL2-Tiny", "date": "2025-01-01", "score": 58.1, "params": 3.4, "family": "DeepSeek" },
-  { "name": "DeepSeek-VL2-Small", "date": "2025-01-01", "score": 64.5, "params": 16.1, "family": "DeepSeek" },
-  { "name": "DeepSeek-VL2", "date": "2025-01-01", "score": 66.4, "params": 27.5, "family": "DeepSeek" },
-  { "name": "BlueLM-V-3B", "date": "2024-10-30", "score": 66.1, "params": 3, "family": "BlueLM" },
-  { "name": "BlueLM-2.5-3B", "date": "2025-07-16", "score": 70.8, "params": 2.9, "family": "BlueLM" },
-  { "name": "BlueLM-2.6-3B", "date": "2025-09-17", "score": 78.4, "params": 3, "family": "BlueLM" },
-  { "name": "R-4B", "date": "2025-08-11", "score": 75.5, "params": 4, "family": "Other" },
-  { "name": "GPT-5", "date": "2025-08-14", "score": 79.9, "params": 50, "family": "OpenAI" },
-  { "name": "ShareGPT4V-7B", "date": "2023-12-08", "score": 39.8, "params": 7.2, "family": "ShareGPT" },
-  { "name": "ShareGPT4V-13B", "date": "2023-12-08", "score": 42.5, "params": 13.4, "family": "ShareGPT" },
-  { "name": "Pixtral-12B", "date": "2024-09-16", "score": 61.0, "params": 13, "family": "Pixtral" },
-  { "name": "Claude3.5-Sonnet", "date": "2024-06-24", "score": 67.9, "params": 40, "family": "Anthropic" },
-  { "name": "Claude3.5-Sonnet-20241022", "date": "2024-11-06", "score": 70.6, "params": 40, "family": "Anthropic" },
-  { "name": "granite-vision-3.1-2b", "date": "2025-06-20", "score": 57.3, "params": 2.98, "family": "Granite" },
-  { "name": "granite-vision-3.2-2b", "date": "2025-06-20", "score": 57.9, "params": 2.98, "family": "Granite" },
-  { "name": "granite-vision-3.3-2b", "date": "2025-06-20", "score": 58.7, "params": 2.98, "family": "Granite" },
-  { "name": "MiMo-VL-7B", "date": "2025-07-02", "score": 65.6, "params": 8.31, "family": "MiMo" },
-  { "name": "InstructBLIP-7B", "date": "2023-05-11", "score": 31.1, "params": 8, "family": "InstructBLIP" },
-  { "name": "Gemini-2.5-Pro", "date": "2025-04-07", "score": 80.1, "params": 60, "family": "Google" }
+  {
+    "name": "LLaVA-v1-7B",
+    "date": "2023-04-17",
+    "score": 31.3,
+    "params": 7.2,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 38.7,
+      "MMStar": 27.1,
+      "MMMU_VAL": 34.1,
+      "MathVista": 25.4,
+      "OCRBench": 26.9,
+      "AI2D": 48.3,
+      "HallusionBench": 21.6,
+      "MMVet": 28.3
+    }
+  },
+  {
+    "name": "MiniGPT-4-v1-7B",
+    "date": "2023-04-20",
+    "score": 21.9,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 20.8,
+      "MMStar": 16.3,
+      "MMMU_VAL": 23.6,
+      "MathVista": 21.3,
+      "OCRBench": 17.2,
+      "AI2D": 28.4,
+      "HallusionBench": 31.9,
+      "MMVet": 15.6
+    }
+  },
+  {
+    "name": "InstructBLIP-7B",
+    "date": "2023-05-11",
+    "score": 31.1,
+    "params": 8.0,
+    "family": "InstructBLIP",
+    "benchmarks": {
+      "MMBench_V11": 28.4,
+      "MMStar": 32.7,
+      "MMMU_VAL": 30.6,
+      "MathVista": 24.6,
+      "OCRBench": 27.6,
+      "AI2D": 40.6,
+      "HallusionBench": 31.2,
+      "MMVet": 33.1
+    }
+  },
+  {
+    "name": "VisualGLM",
+    "date": "2023-05-17",
+    "score": 26.7,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 35.7,
+      "MMStar": 25.9,
+      "MMMU_VAL": 29.9,
+      "MathVista": 23.9,
+      "OCRBench": 17.0,
+      "AI2D": 41.2,
+      "HallusionBench": 25.0,
+      "MMVet": 14.8
+    }
+  },
+  {
+    "name": "PandaGPT-13B",
+    "date": "2023-05-25",
+    "score": 26.5,
+    "params": 14.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 34.5,
+      "MMStar": 25.6,
+      "MMMU_VAL": 32.9,
+      "MathVista": 25.6,
+      "OCRBench": 3.6,
+      "AI2D": 50.3,
+      "HallusionBench": 20.0,
+      "MMVet": 19.6
+    }
+  },
+  {
+    "name": "OpenFlamingo v2",
+    "date": "2023-06-28",
+    "score": 22.9,
+    "params": 9.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 7.9,
+      "MMStar": 26.9,
+      "MMMU_VAL": 28.8,
+      "MathVista": 19.9,
+      "OCRBench": 14.9,
+      "AI2D": 31.7,
+      "HallusionBench": 29.4,
+      "MMVet": 23.3
+    }
+  },
+  {
+    "name": "IDEFICS-80B-Instruct",
+    "date": "2023-07-25",
+    "score": 31.6,
+    "params": 80.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 27.9,
+      "MMStar": 26.1,
+      "MMMU_VAL": 24.0,
+      "MathVista": 28.9,
+      "OCRBench": 28.3,
+      "AI2D": 54.8,
+      "HallusionBench": 23.4,
+      "MMVet": 39.7
+    }
+  },
+  {
+    "name": "IDEFICS-9B-Instruct",
+    "date": "2023-07-25",
+    "score": 27.1,
+    "params": 9.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 27.4,
+      "MMStar": 21.6,
+      "MMMU_VAL": 18.4,
+      "MathVista": 25.1,
+      "OCRBench": 25.2,
+      "AI2D": 42.2,
+      "HallusionBench": 27.3,
+      "MMVet": 30.0
+    }
+  },
+  {
+    "name": "Qwen-VL-Chat",
+    "date": "2023-08-24",
+    "score": 45.2,
+    "params": 9.6,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 59.1,
+      "MMStar": 34.5,
+      "MMMU_VAL": 37.0,
+      "MathVista": 35.3,
+      "OCRBench": 48.8,
+      "AI2D": 63.0,
+      "HallusionBench": 36.8,
+      "MMVet": 47.3
+    }
+  },
+  {
+    "name": "Qwen-VL",
+    "date": "2023-08-24",
+    "score": 28.3,
+    "params": 9.6,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 32.9,
+      "MMStar": 32.5,
+      "MMMU_VAL": 29.6,
+      "MathVista": 18.1,
+      "OCRBench": 12.7,
+      "AI2D": 57.7,
+      "HallusionBench": 29.9,
+      "MMVet": 13.0
+    }
+  },
+  {
+    "name": "InternLM-XComposer",
+    "date": "2023-09-26",
+    "score": 31.9,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 25.9,
+      "MMStar": 6.9,
+      "MMMU_VAL": 35.6,
+      "MathVista": 29.9,
+      "OCRBench": 29.0,
+      "AI2D": 56.9,
+      "HallusionBench": 36.0,
+      "MMVet": 35.2
+    }
+  },
+  {
+    "name": "LLaVA-v1.5-13B",
+    "date": "2023-10-05",
+    "score": 39.3,
+    "params": 13.4,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 60.6,
+      "MMStar": 34.3,
+      "MMMU_VAL": 37.0,
+      "MathVista": 27.7,
+      "OCRBench": 33.7,
+      "AI2D": 61.1,
+      "HallusionBench": 24.5,
+      "MMVet": 35.6
+    }
+  },
+  {
+    "name": "LLaVA-v1.5-7B",
+    "date": "2023-10-05",
+    "score": 36.9,
+    "params": 7.2,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 53.1,
+      "MMStar": 33.1,
+      "MMMU_VAL": 35.7,
+      "MathVista": 25.5,
+      "OCRBench": 31.8,
+      "AI2D": 55.5,
+      "HallusionBench": 27.6,
+      "MMVet": 32.9
+    }
+  },
+  {
+    "name": "MiniGPT-4-v2",
+    "date": "2023-10-27",
+    "score": 18.4,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 3.2,
+      "MMStar": 21.3,
+      "MMMU_VAL": 25.0,
+      "MathVista": 24.0,
+      "OCRBench": 3.1,
+      "AI2D": 30.5,
+      "HallusionBench": 30.0,
+      "MMVet": 10.5
+    }
+  },
+  {
+    "name": "mPLUG-Owl2",
+    "date": "2023-11-10",
+    "score": 37.8,
+    "params": 8.2,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 60.8,
+      "MMStar": 34.8,
+      "MMMU_VAL": 34.7,
+      "MathVista": 25.5,
+      "OCRBench": 25.5,
+      "AI2D": 55.7,
+      "HallusionBench": 29.4,
+      "MMVet": 35.7
+    }
+  },
+  {
+    "name": "ShareGPT4V-13B",
+    "date": "2023-12-08",
+    "score": 42.5,
+    "params": 13.4,
+    "family": "ShareGPT",
+    "benchmarks": {
+      "MMBench_V11": 65.2,
+      "MMStar": 38.3,
+      "MMMU_VAL": 36.6,
+      "MathVista": 29.4,
+      "OCRBench": 39.8,
+      "AI2D": 61.4,
+      "HallusionBench": 28.4,
+      "MMVet": 41.1
+    }
+  },
+  {
+    "name": "ShareGPT4V-7B",
+    "date": "2023-12-08",
+    "score": 39.8,
+    "params": 7.2,
+    "family": "ShareGPT",
+    "benchmarks": {
+      "MMBench_V11": 61.6,
+      "MMStar": 35.7,
+      "MMMU_VAL": 37.2,
+      "MathVista": 26.6,
+      "OCRBench": 37.1,
+      "AI2D": 58.0,
+      "HallusionBench": 28.6,
+      "MMVet": 33.4
+    }
+  },
+  {
+    "name": "GPT-4v (1106, detail-low)",
+    "date": "2023-12-23",
+    "score": 57.2,
+    "params": 220.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 73.8,
+      "MMStar": 49.7,
+      "MMMU_VAL": 53.8,
+      "MathVista": 49.4,
+      "OCRBench": 51.6,
+      "AI2D": 75.9,
+      "HallusionBench": 46.5,
+      "MMVet": 56.8
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Gemini-1.0-Pro",
+    "date": "2023-12-23",
+    "score": 56.1,
+    "params": 50.0,
+    "family": "Google",
+    "benchmarks": {
+      "MMBench_V11": 69.7,
+      "MMStar": 38.6,
+      "MMMU_VAL": 49.0,
+      "MathVista": 46.5,
+      "OCRBench": 68.0,
+      "AI2D": 72.9,
+      "HallusionBench": 45.7,
+      "MMVet": 58.6
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "LLaVA-InternLM-7B (QLoRA)",
+    "date": "2023-12-28",
+    "score": 39.8,
+    "params": 7.6,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 65.0,
+      "MMStar": 35.5,
+      "MMMU_VAL": 36.9,
+      "MathVista": 27.1,
+      "OCRBench": 34.7,
+      "AI2D": 58.0,
+      "HallusionBench": 28.9,
+      "MMVet": 32.4
+    }
+  },
+  {
+    "name": "LLaVA-v1.5-13B (QLoRA)",
+    "date": "2023-12-28",
+    "score": 41.6,
+    "params": 13.4,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 64.8,
+      "MMStar": 40.1,
+      "MMMU_VAL": 35.2,
+      "MathVista": 28.5,
+      "OCRBench": 40.7,
+      "AI2D": 61.3,
+      "HallusionBench": 26.2,
+      "MMVet": 35.9
+    }
+  },
+  {
+    "name": "LLaVA-v1.5-7B (QLoRA)",
+    "date": "2023-12-28",
+    "score": 38.5,
+    "params": 7.2,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 62.1,
+      "MMStar": 34.6,
+      "MMMU_VAL": 33.7,
+      "MathVista": 25.4,
+      "OCRBench": 38.5,
+      "AI2D": 55.9,
+      "HallusionBench": 25.2,
+      "MMVet": 32.2
+    }
+  },
+  {
+    "name": "ShareCaptioner",
+    "date": "2024-01-03",
+    "score": 39.8,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 60.8,
+      "MMStar": 38.4,
+      "MMMU_VAL": 36.3,
+      "MathVista": 29.5,
+      "OCRBench": 32.2,
+      "AI2D": 56.7,
+      "HallusionBench": 34.2,
+      "MMVet": 30.1
+    }
+  },
+  {
+    "name": "CogVLM-17B-Chat",
+    "date": "2024-01-03",
+    "score": 47.9,
+    "params": 17.0,
+    "family": "CogVLM",
+    "benchmarks": {
+      "MMBench_V11": 58.8,
+      "MMStar": 39.9,
+      "MMMU_VAL": 37.3,
+      "MathVista": 35.3,
+      "OCRBench": 59.0,
+      "AI2D": 63.3,
+      "HallusionBench": 35.4,
+      "MMVet": 54.5
+    }
+  },
+  {
+    "name": "Qwen-VL-Plus",
+    "date": "2024-01-10",
+    "score": 52.3,
+    "params": 72.0,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 66.2,
+      "MMStar": 39.7,
+      "MMMU_VAL": 39.8,
+      "MathVista": 38.2,
+      "OCRBench": 72.6,
+      "AI2D": 65.7,
+      "HallusionBench": 40.6,
+      "MMVet": 55.7
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Monkey",
+    "date": "2024-01-11",
+    "score": 43.9,
+    "params": 9.8,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 55.0,
+      "MMStar": 37.0,
+      "MMMU_VAL": 38.9,
+      "MathVista": 33.5,
+      "OCRBench": 51.4,
+      "AI2D": 62.5,
+      "HallusionBench": 34.9,
+      "MMVet": 38.1
+    }
+  },
+  {
+    "name": "Monkey-Chat",
+    "date": "2024-01-16",
+    "score": 48.4,
+    "params": 9.8,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 67.3,
+      "MMStar": 40.7,
+      "MMMU_VAL": 40.7,
+      "MathVista": 36.0,
+      "OCRBench": 53.4,
+      "AI2D": 68.5,
+      "HallusionBench": 39.3,
+      "MMVet": 41.0
+    }
+  },
+  {
+    "name": "LLaVA-InternLM2-20B (QLoRA)",
+    "date": "2024-01-17",
+    "score": 43.8,
+    "params": 20.2,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 71.4,
+      "MMStar": 41.9,
+      "MMMU_VAL": 39.4,
+      "MathVista": 28.5,
+      "OCRBench": 40.0,
+      "AI2D": 65.4,
+      "HallusionBench": 26.4,
+      "MMVet": 37.2
+    }
+  },
+  {
+    "name": "LLaVA-InternLM2-7B (QLoRA)",
+    "date": "2024-01-17",
+    "score": 43.1,
+    "params": 8.1,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 71.0,
+      "MMStar": 38.3,
+      "MMMU_VAL": 40.1,
+      "MathVista": 28.9,
+      "OCRBench": 40.2,
+      "AI2D": 63.6,
+      "HallusionBench": 26.7,
+      "MMVet": 35.9
+    }
+  },
+  {
+    "name": "Emu2_chat",
+    "date": "2024-01-17",
+    "score": 39.2,
+    "params": 37.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 52.8,
+      "MMStar": 40.7,
+      "MMMU_VAL": 35.0,
+      "MathVista": 31.3,
+      "OCRBench": 43.6,
+      "AI2D": 49.7,
+      "HallusionBench": 29.5,
+      "MMVet": 31.0
+    }
+  },
+  {
+    "name": "Yi-VL-34B",
+    "date": "2024-01-25",
+    "score": 43.5,
+    "params": 34.6,
+    "family": "Yi",
+    "benchmarks": {
+      "MMBench_V11": 67.8,
+      "MMStar": 40.5,
+      "MMMU_VAL": 45.1,
+      "MathVista": 31.6,
+      "OCRBench": 29.0,
+      "AI2D": 65.9,
+      "HallusionBench": 35.3,
+      "MMVet": 32.7
+    }
+  },
+  {
+    "name": "Yi-VL-6B",
+    "date": "2024-01-25",
+    "score": 41.1,
+    "params": 6.6,
+    "family": "Yi",
+    "benchmarks": {
+      "MMBench_V11": 64.2,
+      "MMStar": 37.7,
+      "MMMU_VAL": 40.3,
+      "MathVista": 29.7,
+      "OCRBench": 29.0,
+      "AI2D": 59.8,
+      "HallusionBench": 36.0,
+      "MMVet": 32.1
+    }
+  },
+  {
+    "name": "InternLM-XComposer2",
+    "date": "2024-01-26",
+    "score": 57.1,
+    "params": 7.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 77.6,
+      "MMStar": 56.2,
+      "MMMU_VAL": 41.4,
+      "MathVista": 59.8,
+      "OCRBench": 53.2,
+      "AI2D": 81.2,
+      "HallusionBench": 41.0,
+      "MMVet": 46.7
+    }
+  },
+  {
+    "name": "MMAlaya",
+    "date": "2024-01-29",
+    "score": 33.1,
+    "params": 7.8,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 56.2,
+      "MMStar": 34.3,
+      "MMMU_VAL": 32.0,
+      "MathVista": 22.9,
+      "OCRBench": 22.3,
+      "AI2D": 42.3,
+      "HallusionBench": 32.9,
+      "MMVet": 22.2
+    }
+  },
+  {
+    "name": "Qwen-VL-Max",
+    "date": "2024-02-02",
+    "score": 58.4,
+    "params": 72.0,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 74.6,
+      "MMStar": 49.5,
+      "MMMU_VAL": 52.0,
+      "MathVista": 43.6,
+      "OCRBench": 68.4,
+      "AI2D": 75.7,
+      "HallusionBench": 41.2,
+      "MMVet": 61.8
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "OmniLMM-12B",
+    "date": "2024-02-07",
+    "score": 46.2,
+    "params": 12.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 64.3,
+      "MMStar": 39.6,
+      "MMMU_VAL": 41.8,
+      "MathVista": 35.2,
+      "OCRBench": 42.0,
+      "AI2D": 63.3,
+      "HallusionBench": 35.8,
+      "MMVet": 47.4
+    }
+  },
+  {
+    "name": "MiniCPM-V",
+    "date": "2024-02-07",
+    "score": 41.0,
+    "params": 3.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 60.5,
+      "MMStar": 38.6,
+      "MMMU_VAL": 38.3,
+      "MathVista": 30.6,
+      "OCRBench": 36.6,
+      "AI2D": 56.3,
+      "HallusionBench": 36.2,
+      "MMVet": 31.1
+    }
+  },
+  {
+    "name": "DeepSeek-VL-7B",
+    "date": "2024-03-21",
+    "score": 46.2,
+    "params": 7.3,
+    "family": "DeepSeek",
+    "benchmarks": {
+      "MMBench_V11": 70.7,
+      "MMStar": 40.5,
+      "MMMU_VAL": 38.3,
+      "MathVista": 37.2,
+      "OCRBench": 43.5,
+      "AI2D": 65.3,
+      "HallusionBench": 34.5,
+      "MMVet": 39.7
+    }
+  },
+  {
+    "name": "DeepSeek-VL-1.3B",
+    "date": "2024-03-21",
+    "score": 39.7,
+    "params": 2.0,
+    "family": "DeepSeek",
+    "benchmarks": {
+      "MMBench_V11": 63.8,
+      "MMStar": 39.9,
+      "MMMU_VAL": 33.8,
+      "MathVista": 30.7,
+      "OCRBench": 41.3,
+      "AI2D": 51.5,
+      "HallusionBench": 27.6,
+      "MMVet": 29.2
+    }
+  },
+  {
+    "name": "LLaVA-Next-Yi-34B",
+    "date": "2024-03-25",
+    "score": 55.1,
+    "params": 34.8,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 77.8,
+      "MMStar": 51.6,
+      "MMMU_VAL": 48.8,
+      "MathVista": 40.5,
+      "OCRBench": 57.4,
+      "AI2D": 78.9,
+      "HallusionBench": 34.8,
+      "MMVet": 50.7
+    }
+  },
+  {
+    "name": "LLaVA-Next-Vicuna-13B",
+    "date": "2024-03-25",
+    "score": 47.7,
+    "params": 13.4,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 66.5,
+      "MMStar": 40.4,
+      "MMMU_VAL": 37.3,
+      "MathVista": 35.1,
+      "OCRBench": 53.7,
+      "AI2D": 72.2,
+      "HallusionBench": 31.8,
+      "MMVet": 44.9
+    }
+  },
+  {
+    "name": "LLaVA-Next-Mistral-7B",
+    "date": "2024-03-25",
+    "score": 45.9,
+    "params": 7.6,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 63.1,
+      "MMStar": 38.4,
+      "MMMU_VAL": 37.0,
+      "MathVista": 34.9,
+      "OCRBench": 53.1,
+      "AI2D": 69.0,
+      "HallusionBench": 29.1,
+      "MMVet": 42.2
+    }
+  },
+  {
+    "name": "LLaVA-Next-Vicuna-7B",
+    "date": "2024-03-25",
+    "score": 44.8,
+    "params": 7.1,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 63.0,
+      "MMStar": 37.6,
+      "MMMU_VAL": 37.6,
+      "MathVista": 32.5,
+      "OCRBench": 53.2,
+      "AI2D": 67.0,
+      "HallusionBench": 27.6,
+      "MMVet": 40.2
+    }
+  },
+  {
+    "name": "Claude3-Sonnet",
+    "date": "2024-03-28",
+    "score": 53.5,
+    "params": 100.0,
+    "family": "Anthropic",
+    "benchmarks": {
+      "MMBench_V11": 63.9,
+      "MMStar": 44.2,
+      "MMMU_VAL": 47.4,
+      "MathVista": 45.0,
+      "OCRBench": 64.6,
+      "AI2D": 69.9,
+      "HallusionBench": 41.3,
+      "MMVet": 51.7
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Claude3-Opus",
+    "date": "2024-03-28",
+    "score": 54.4,
+    "params": 175.0,
+    "family": "Anthropic",
+    "benchmarks": {
+      "MMBench_V11": 59.1,
+      "MMStar": 45.7,
+      "MMMU_VAL": 54.9,
+      "MathVista": 46.1,
+      "OCRBench": 69.4,
+      "AI2D": 70.6,
+      "HallusionBench": 37.8,
+      "MMVet": 51.7
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Claude3-Haiku",
+    "date": "2024-03-28",
+    "score": 50.6,
+    "params": 40.0,
+    "family": "Anthropic",
+    "benchmarks": {
+      "MMBench_V11": 57.1,
+      "MMStar": 38.1,
+      "MMMU_VAL": 49.7,
+      "MathVista": 42.6,
+      "OCRBench": 65.8,
+      "AI2D": 65.6,
+      "HallusionBench": 39.2,
+      "MMVet": 46.4
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "MiniCPM-V-2",
+    "date": "2024-04-15",
+    "score": 47.9,
+    "params": 2.8,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 65.8,
+      "MMStar": 39.1,
+      "MMMU_VAL": 38.2,
+      "MathVista": 39.8,
+      "OCRBench": 60.5,
+      "AI2D": 62.9,
+      "HallusionBench": 36.1,
+      "MMVet": 41.0
+    }
+  },
+  {
+    "name": "TransCore-M",
+    "date": "2024-04-16",
+    "score": 43.2,
+    "params": 13.4,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 67.8,
+      "MMStar": 35.6,
+      "MMMU_VAL": 41.0,
+      "MathVista": 32.5,
+      "OCRBench": 40.5,
+      "AI2D": 64.1,
+      "HallusionBench": 27.3,
+      "MMVet": 36.9
+    }
+  },
+  {
+    "name": "InternVL-Chat-V1.5",
+    "date": "2024-04-17",
+    "score": 61.9,
+    "params": 26.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 79.7,
+      "MMStar": 57.1,
+      "MMMU_VAL": 46.8,
+      "MathVista": 56.1,
+      "OCRBench": 72.0,
+      "AI2D": 80.6,
+      "HallusionBench": 47.4,
+      "MMVet": 55.4
+    }
+  },
+  {
+    "name": "GPT-4v (1106, detail-high)",
+    "date": "2024-04-22",
+    "score": 56.4,
+    "params": 220.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 65.5,
+      "MMStar": 50.4,
+      "MMMU_VAL": 59.3,
+      "MathVista": 48.4,
+      "OCRBench": 67.8,
+      "AI2D": 71.4,
+      "HallusionBench": 39.3,
+      "MMVet": 49.0
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "IDEFICS2-8B",
+    "date": "2024-04-26",
+    "score": 53.0,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 68.9,
+      "MMStar": 49.5,
+      "MMMU_VAL": 45.2,
+      "MathVista": 52.5,
+      "OCRBench": 62.6,
+      "AI2D": 72.3,
+      "HallusionBench": 39.1,
+      "MMVet": 34.0
+    }
+  },
+  {
+    "name": "RekaFlash",
+    "date": "2024-05-07",
+    "score": 56.5,
+    "params": 21.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 73.0,
+      "MMStar": 50.2,
+      "MMMU_VAL": 44.8,
+      "MathVista": 47.7,
+      "OCRBench": 69.2,
+      "AI2D": 75.6,
+      "HallusionBench": 39.2,
+      "MMVet": 52.5
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "LLaVA-LLaMA-3-8B",
+    "date": "2024-05-07",
+    "score": 45.6,
+    "params": 8.0,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 64.3,
+      "MMStar": 46.1,
+      "MMMU_VAL": 39.2,
+      "MathVista": 40.6,
+      "OCRBench": 42.0,
+      "AI2D": 69.9,
+      "HallusionBench": 28.7,
+      "MMVet": 34.1
+    }
+  },
+  {
+    "name": "XVERSE-V-13B",
+    "date": "2024-05-10",
+    "score": 49.4,
+    "params": 13.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 66.3,
+      "MMStar": 49.3,
+      "MMMU_VAL": 44.1,
+      "MathVista": 45.1,
+      "OCRBench": 48.9,
+      "AI2D": 70.6,
+      "HallusionBench": 33.3,
+      "MMVet": 37.8
+    }
+  },
+  {
+    "name": "GPT-4o (0513, detail-low)",
+    "date": "2024-05-15",
+    "score": 66.7,
+    "params": 200.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 82.8,
+      "MMStar": 61.6,
+      "MMMU_VAL": 62.8,
+      "MathVista": 57.2,
+      "OCRBench": 73.5,
+      "AI2D": 77.4,
+      "HallusionBench": 51.7,
+      "MMVet": 66.5
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "GPT-4v (0409, detail-high)",
+    "date": "2024-05-15",
+    "score": 63.5,
+    "params": 220.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 79.8,
+      "MMStar": 56.0,
+      "MMMU_VAL": 61.7,
+      "MathVista": 55.2,
+      "OCRBench": 65.6,
+      "AI2D": 78.6,
+      "HallusionBench": 43.9,
+      "MMVet": 67.5
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "GPT-4v (0409, detail-low)",
+    "date": "2024-05-15",
+    "score": 60.0,
+    "params": 220.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 78.8,
+      "MMStar": 52.9,
+      "MMMU_VAL": 62.3,
+      "MathVista": 51.8,
+      "OCRBench": 52.6,
+      "AI2D": 76.1,
+      "HallusionBench": 41.6,
+      "MMVet": 63.6
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "PaliGemma-3B-mix-448",
+    "date": "2024-05-17",
+    "score": 46.5,
+    "params": 3.0,
+    "family": "PaliGemma",
+    "benchmarks": {
+      "MMBench_V11": 65.6,
+      "MMStar": 48.3,
+      "MMMU_VAL": 34.9,
+      "MathVista": 28.5,
+      "OCRBench": 61.4,
+      "AI2D": 68.3,
+      "HallusionBench": 32.2,
+      "MMVet": 33.1
+    }
+  },
+  {
+    "name": "GLM-4v",
+    "date": "2024-05-20",
+    "score": 60.8,
+    "params": 13.0,
+    "family": "GLM",
+    "benchmarks": {
+      "MMBench_V11": 78.6,
+      "MMStar": 53.2,
+      "MMMU_VAL": 45.6,
+      "MathVista": 45.9,
+      "OCRBench": 81.4,
+      "AI2D": 76.1,
+      "HallusionBench": 44.9,
+      "MMVet": 60.7
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "360VL-70B",
+    "date": "2024-05-25",
+    "score": 48.2,
+    "params": 70.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 75.0,
+      "MMStar": 48.1,
+      "MMMU_VAL": 53.4,
+      "MathVista": 37.9,
+      "OCRBench": 39.7,
+      "AI2D": 71.9,
+      "HallusionBench": 34.8,
+      "MMVet": 24.7
+    }
+  },
+  {
+    "name": "MiniCPM-Llama3-V2.5",
+    "date": "2024-05-27",
+    "score": 58.8,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 72.0,
+      "MMStar": 51.8,
+      "MMMU_VAL": 45.8,
+      "MathVista": 54.5,
+      "OCRBench": 72.5,
+      "AI2D": 78.4,
+      "HallusionBench": 42.4,
+      "MMVet": 52.8
+    }
+  },
+  {
+    "name": "GPT-4o (0513, detail-high)",
+    "date": "2024-05-31",
+    "score": 70.9,
+    "params": 200.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 82.2,
+      "MMStar": 63.9,
+      "MMMU_VAL": 69.2,
+      "MathVista": 61.8,
+      "OCRBench": 81.5,
+      "AI2D": 84.6,
+      "HallusionBench": 55.0,
+      "MMVet": 69.1
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "CogVLM2-19B-Chat",
+    "date": "2024-05-31",
+    "score": 56.3,
+    "params": 19.0,
+    "family": "CogVLM",
+    "benchmarks": {
+      "MMBench_V11": 70.7,
+      "MMStar": 50.5,
+      "MMMU_VAL": 42.6,
+      "MathVista": 38.7,
+      "OCRBench": 75.7,
+      "AI2D": 73.4,
+      "HallusionBench": 41.3,
+      "MMVet": 57.8
+    }
+  },
+  {
+    "name": "Phi-3-Vision",
+    "date": "2024-05-31",
+    "score": 53.6,
+    "params": 4.2,
+    "family": "Phi",
+    "benchmarks": {
+      "MMBench_V11": 65.2,
+      "MMStar": 47.7,
+      "MMMU_VAL": 46.1,
+      "MathVista": 44.8,
+      "OCRBench": 63.7,
+      "AI2D": 78.4,
+      "HallusionBench": 39.0,
+      "MMVet": 44.1
+    }
+  },
+  {
+    "name": "RekaEdge",
+    "date": "2024-05-31",
+    "score": 46.6,
+    "params": 7.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 60.1,
+      "MMStar": 39.6,
+      "MMMU_VAL": 42.4,
+      "MathVista": 37.5,
+      "OCRBench": 50.6,
+      "AI2D": 67.4,
+      "HallusionBench": 35.1,
+      "MMVet": 40.5
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "InternLM-XComposer2-4KHD",
+    "date": "2024-06-09",
+    "score": 58.8,
+    "params": 7.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 76.5,
+      "MMStar": 55.3,
+      "MMMU_VAL": 39.7,
+      "MathVista": 59.5,
+      "OCRBench": 67.5,
+      "AI2D": 81.0,
+      "HallusionBench": 42.5,
+      "MMVet": 48.2
+    }
+  },
+  {
+    "name": "WeMM",
+    "date": "2024-06-09",
+    "score": 58.3,
+    "params": 7.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 75.7,
+      "MMStar": 57.0,
+      "MMMU_VAL": 45.3,
+      "MathVista": 54.9,
+      "OCRBench": 62.8,
+      "AI2D": 77.9,
+      "HallusionBench": 47.5,
+      "MMVet": 45.0
+    }
+  },
+  {
+    "name": "InternLM-XComposer2-1.8B",
+    "date": "2024-06-09",
+    "score": 47.0,
+    "params": 2.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 68.6,
+      "MMStar": 46.4,
+      "MMMU_VAL": 29.7,
+      "MathVista": 50.3,
+      "OCRBench": 44.7,
+      "AI2D": 71.1,
+      "HallusionBench": 33.7,
+      "MMVet": 31.2
+    }
+  },
+  {
+    "name": "Mini-InternVL-Chat-2B-V1.5",
+    "date": "2024-06-10",
+    "score": 49.8,
+    "params": 2.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 65.2,
+      "MMStar": 46.7,
+      "MMMU_VAL": 37.4,
+      "MathVista": 41.3,
+      "OCRBench": 65.2,
+      "AI2D": 69.7,
+      "HallusionBench": 37.3,
+      "MMVet": 35.5
+    }
+  },
+  {
+    "name": "Mini-InternVL-Chat-4B-V1.5",
+    "date": "2024-06-10",
+    "score": 56.3,
+    "params": 4.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 69.7,
+      "MMStar": 53.1,
+      "MMMU_VAL": 45.1,
+      "MathVista": 55.0,
+      "OCRBench": 63.9,
+      "AI2D": 77.0,
+      "HallusionBench": 43.0,
+      "MMVet": 43.6
+    }
+  },
+  {
+    "name": "Gemini-1.5-Pro",
+    "date": "2024-06-10",
+    "score": 64.5,
+    "params": 60.0,
+    "family": "Google",
+    "benchmarks": {
+      "MMBench_V11": 73.9,
+      "MMStar": 59.1,
+      "MMMU_VAL": 60.6,
+      "MathVista": 58.3,
+      "OCRBench": 75.4,
+      "AI2D": 79.1,
+      "HallusionBench": 45.6,
+      "MMVet": 64.0
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "GLM-4v-9B",
+    "date": "2024-06-14",
+    "score": 59.2,
+    "params": 9.0,
+    "family": "GLM",
+    "benchmarks": {
+      "MMBench_V11": 67.9,
+      "MMStar": 54.8,
+      "MMMU_VAL": 46.9,
+      "MathVista": 52.2,
+      "OCRBench": 77.6,
+      "AI2D": 71.2,
+      "HallusionBench": 45.0,
+      "MMVet": 58.0
+    }
+  },
+  {
+    "name": "Claude3.5-Sonnet",
+    "date": "2024-06-24",
+    "score": 67.9,
+    "params": 100.0,
+    "family": "Anthropic",
+    "benchmarks": {
+      "MMBench_V11": 78.5,
+      "MMStar": 62.2,
+      "MMMU_VAL": 65.9,
+      "MathVista": 61.8,
+      "OCRBench": 78.8,
+      "AI2D": 80.2,
+      "HallusionBench": 49.9,
+      "MMVet": 66.0
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "CongRong",
+    "date": "2024-06-26",
+    "score": 65.5,
+    "params": 14.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 80.7,
+      "MMStar": 60.6,
+      "MMMU_VAL": 48.3,
+      "MathVista": 61.1,
+      "OCRBench": 82.7,
+      "AI2D": 82.4,
+      "HallusionBench": 50.6,
+      "MMVet": 57.5
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "InternVL2-1B",
+    "date": "2024-07-11",
+    "score": 48.4,
+    "params": 1.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 59.7,
+      "MMStar": 45.6,
+      "MMMU_VAL": 36.7,
+      "MathVista": 40.4,
+      "OCRBench": 75.5,
+      "AI2D": 63.8,
+      "HallusionBench": 34.3,
+      "MMVet": 31.5
+    }
+  },
+  {
+    "name": "InternVL2-2B",
+    "date": "2024-07-11",
+    "score": 54.1,
+    "params": 2.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 69.6,
+      "MMStar": 49.8,
+      "MMMU_VAL": 36.3,
+      "MathVista": 47.0,
+      "OCRBench": 78.1,
+      "AI2D": 74.1,
+      "HallusionBench": 38.0,
+      "MMVet": 39.7
+    }
+  },
+  {
+    "name": "InternVL2-4B",
+    "date": "2024-07-11",
+    "score": 60.6,
+    "params": 4.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 73.6,
+      "MMStar": 53.9,
+      "MMMU_VAL": 48.3,
+      "MathVista": 58.5,
+      "OCRBench": 78.4,
+      "AI2D": 79.0,
+      "HallusionBench": 42.4,
+      "MMVet": 50.9
+    }
+  },
+  {
+    "name": "InternVL2-8B",
+    "date": "2024-07-11",
+    "score": 64.1,
+    "params": 8.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 79.4,
+      "MMStar": 61.5,
+      "MMMU_VAL": 51.2,
+      "MathVista": 58.3,
+      "OCRBench": 79.4,
+      "AI2D": 83.6,
+      "HallusionBench": 45.0,
+      "MMVet": 54.3
+    }
+  },
+  {
+    "name": "InternVL2-26B",
+    "date": "2024-07-11",
+    "score": 66.4,
+    "params": 26.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 81.2,
+      "MMStar": 61.0,
+      "MMMU_VAL": 50.7,
+      "MathVista": 59.6,
+      "OCRBench": 82.5,
+      "AI2D": 84.5,
+      "HallusionBench": 51.5,
+      "MMVet": 60.0
+    }
+  },
+  {
+    "name": "InternVL2-40B",
+    "date": "2024-07-11",
+    "score": 69.7,
+    "params": 40.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 85.0,
+      "MMStar": 64.7,
+      "MMMU_VAL": 55.2,
+      "MathVista": 64.3,
+      "OCRBench": 83.3,
+      "AI2D": 86.8,
+      "HallusionBench": 56.5,
+      "MMVet": 61.8
+    }
+  },
+  {
+    "name": "Cambrian-8B",
+    "date": "2024-07-11",
+    "score": 52.9,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 68.2,
+      "MMStar": 50.7,
+      "MMMU_VAL": 41.8,
+      "MathVista": 48.1,
+      "OCRBench": 61.4,
+      "AI2D": 74.6,
+      "HallusionBench": 30.6,
+      "MMVet": 48.0
+    }
+  },
+  {
+    "name": "InternLM-XComposer2.5",
+    "date": "2024-07-11",
+    "score": 61.1,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 79.4,
+      "MMStar": 59.9,
+      "MMMU_VAL": 42.9,
+      "MathVista": 64.0,
+      "OCRBench": 68.6,
+      "AI2D": 81.6,
+      "HallusionBench": 43.1,
+      "MMVet": 49.3
+    }
+  },
+  {
+    "name": "Cambrian-34B",
+    "date": "2024-07-18",
+    "score": 58.3,
+    "params": 34.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 77.8,
+      "MMStar": 54.2,
+      "MMMU_VAL": 50.4,
+      "MathVista": 50.9,
+      "OCRBench": 59.1,
+      "AI2D": 79.5,
+      "HallusionBench": 41.6,
+      "MMVet": 53.2
+    }
+  },
+  {
+    "name": "Bunny-Llama3-8B",
+    "date": "2024-07-18",
+    "score": 48.4,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 72.9,
+      "MMStar": 45.4,
+      "MMMU_VAL": 43.4,
+      "MathVista": 35.2,
+      "OCRBench": 44.4,
+      "AI2D": 69.4,
+      "HallusionBench": 37.7,
+      "MMVet": 39.1
+    }
+  },
+  {
+    "name": "InternVL2-Llama3-76B",
+    "date": "2024-07-19",
+    "score": 71.0,
+    "params": 76.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 85.5,
+      "MMStar": 67.1,
+      "MMMU_VAL": 58.3,
+      "MathVista": 65.6,
+      "OCRBench": 84.2,
+      "AI2D": 87.6,
+      "HallusionBench": 55.4,
+      "MMVet": 64.4
+    }
+  },
+  {
+    "name": "GPT-4o-mini (0718, detail-high)",
+    "date": "2024-07-20",
+    "score": 64.1,
+    "params": 50.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 76.0,
+      "MMStar": 54.8,
+      "MMMU_VAL": 60.0,
+      "MathVista": 52.5,
+      "OCRBench": 78.5,
+      "AI2D": 77.8,
+      "HallusionBench": 46.1,
+      "MMVet": 66.9
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Ovis1.5-Llama3-8B",
+    "date": "2024-07-29",
+    "score": 61.9,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 76.6,
+      "MMStar": 57.3,
+      "MMMU_VAL": 48.3,
+      "MathVista": 63.3,
+      "OCRBench": 74.4,
+      "AI2D": 82.5,
+      "HallusionBench": 42.3,
+      "MMVet": 50.9
+    }
+  },
+  {
+    "name": "LLaVA-Next-Llama3",
+    "date": "2024-07-29",
+    "score": 49.7,
+    "params": 8.0,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 69.8,
+      "MMStar": 43.9,
+      "MMMU_VAL": 43.1,
+      "MathVista": 37.7,
+      "OCRBench": 53.1,
+      "AI2D": 72.8,
+      "HallusionBench": 33.1,
+      "MMVet": 44.4
+    }
+  },
+  {
+    "name": "LLaVA-Next-Interleave-7B-DPO",
+    "date": "2024-07-29",
+    "score": 48.4,
+    "params": 8.0,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 71.3,
+      "MMStar": 45.3,
+      "MMMU_VAL": 40.1,
+      "MathVista": 35.3,
+      "OCRBench": 46.0,
+      "AI2D": 72.9,
+      "HallusionBench": 36.8,
+      "MMVet": 39.8
+    }
+  },
+  {
+    "name": "Chameleon-7B",
+    "date": "2024-07-29",
+    "score": 21.0,
+    "params": 7.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 19.8,
+      "MMStar": 31.1,
+      "MMMU_VAL": 22.4,
+      "MathVista": 22.5,
+      "OCRBench": 0.5,
+      "AI2D": 46.0,
+      "HallusionBench": 17.1,
+      "MMVet": 8.3
+    }
+  },
+  {
+    "name": "Chameleon-30B",
+    "date": "2024-07-29",
+    "score": 26.5,
+    "params": 30.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 32.7,
+      "MMStar": 31.8,
+      "MMMU_VAL": 38.8,
+      "MathVista": 23.8,
+      "OCRBench": 2.7,
+      "AI2D": 53.7,
+      "HallusionBench": 18.6,
+      "MMVet": 9.7
+    }
+  },
+  {
+    "name": "Cambrian-13B",
+    "date": "2024-07-29",
+    "score": 53.4,
+    "params": 13.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 67.5,
+      "MMStar": 47.1,
+      "MMMU_VAL": 41.6,
+      "MathVista": 47.7,
+      "OCRBench": 61.0,
+      "AI2D": 73.6,
+      "HallusionBench": 39.4,
+      "MMVet": 48.9
+    }
+  },
+  {
+    "name": "Yi-Vision",
+    "date": "2024-08-03",
+    "score": 63.9,
+    "params": 34.0,
+    "family": "Yi",
+    "benchmarks": {
+      "MMBench_V11": 76.3,
+      "MMStar": 60.5,
+      "MMMU_VAL": 60.3,
+      "MathVista": 57.8,
+      "OCRBench": 70.1,
+      "AI2D": 78.2,
+      "HallusionBench": 50.3,
+      "MMVet": 57.6
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Ovis1.5-Gemma2-9B",
+    "date": "2024-08-04",
+    "score": 64.0,
+    "params": 11.4,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 77.3,
+      "MMStar": 58.1,
+      "MMMU_VAL": 49.7,
+      "MathVista": 65.6,
+      "OCRBench": 75.2,
+      "AI2D": 84.5,
+      "HallusionBench": 48.2,
+      "MMVet": 53.8
+    }
+  },
+  {
+    "name": "LLaVA-Next-Interleave-7B",
+    "date": "2024-08-08",
+    "score": 47.5,
+    "params": 8.0,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 71.1,
+      "MMStar": 44.5,
+      "MMMU_VAL": 41.7,
+      "MathVista": 34.0,
+      "OCRBench": 41.1,
+      "AI2D": 73.8,
+      "HallusionBench": 34.8,
+      "MMVet": 39.1
+    }
+  },
+  {
+    "name": "LLaVA-Next-Qwen-32B",
+    "date": "2024-08-08",
+    "score": 51.2,
+    "params": 33.0,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 76.8,
+      "MMStar": 48.5,
+      "MMMU_VAL": 41.8,
+      "MathVista": 39.6,
+      "OCRBench": 38.4,
+      "AI2D": 75.5,
+      "HallusionBench": 39.3,
+      "MMVet": 50.0
+    }
+  },
+  {
+    "name": "Mantis-8B-clip-llama3",
+    "date": "2024-08-08",
+    "score": 38.5,
+    "params": 8.0,
+    "family": "Mantis",
+    "benchmarks": {
+      "MMBench_V11": 62.6,
+      "MMStar": 38.3,
+      "MMMU_VAL": 40.2,
+      "MathVista": 30.4,
+      "OCRBench": 20.0,
+      "AI2D": 56.6,
+      "HallusionBench": 31.3,
+      "MMVet": 28.6
+    }
+  },
+  {
+    "name": "Mantis-8B-siglip-llama3",
+    "date": "2024-08-08",
+    "score": 42.9,
+    "params": 8.0,
+    "family": "Mantis",
+    "benchmarks": {
+      "MMBench_V11": 64.6,
+      "MMStar": 41.3,
+      "MMMU_VAL": 41.1,
+      "MathVista": 32.7,
+      "OCRBench": 34.7,
+      "AI2D": 60.4,
+      "HallusionBench": 34.2,
+      "MMVet": 34.4
+    }
+  },
+  {
+    "name": "Mantis-8B-Idefics2",
+    "date": "2024-08-08",
+    "score": 49.4,
+    "params": 8.0,
+    "family": "Mantis",
+    "benchmarks": {
+      "MMBench_V11": 69.7,
+      "MMStar": 44.8,
+      "MMMU_VAL": 41.6,
+      "MathVista": 41.2,
+      "OCRBench": 54.2,
+      "AI2D": 67.3,
+      "HallusionBench": 37.1,
+      "MMVet": 39.3
+    }
+  },
+  {
+    "name": "MiniCPM-V-2.6",
+    "date": "2024-08-08",
+    "score": 65.2,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 78.0,
+      "MMStar": 57.5,
+      "MMMU_VAL": 49.8,
+      "MathVista": 60.8,
+      "OCRBench": 85.2,
+      "AI2D": 82.1,
+      "HallusionBench": 48.1,
+      "MMVet": 60.0
+    }
+  },
+  {
+    "name": "GPT-4o (0806, detail-high)",
+    "date": "2024-08-08",
+    "score": 71.6,
+    "params": 200.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 80.5,
+      "MMStar": 64.7,
+      "MMMU_VAL": 69.9,
+      "MathVista": 62.9,
+      "OCRBench": 80.5,
+      "AI2D": 84.7,
+      "HallusionBench": 54.2,
+      "MMVet": 75.1
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Llama-3-MixSense-v1.1",
+    "date": "2024-08-21",
+    "score": 52.8,
+    "params": 8.0,
+    "family": "Llama",
+    "benchmarks": {
+      "MMBench_V11": 71.9,
+      "MMStar": 53.1,
+      "MMMU_VAL": 39.3,
+      "MathVista": 50.4,
+      "OCRBench": 57.7,
+      "AI2D": 72.4,
+      "HallusionBench": 36.2,
+      "MMVet": 41.1
+    }
+  },
+  {
+    "name": "OmChat-v2.0-13B",
+    "date": "2024-08-22",
+    "score": 62.0,
+    "params": 13.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 79.5,
+      "MMStar": 58.2,
+      "MMMU_VAL": 49.6,
+      "MathVista": 57.2,
+      "OCRBench": 72.8,
+      "AI2D": 77.8,
+      "HallusionBench": 48.4,
+      "MMVet": 52.6
+    }
+  },
+  {
+    "name": "Parrot-7B",
+    "date": "2024-08-22",
+    "score": 41.4,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 69.0,
+      "MMStar": 39.1,
+      "MMMU_VAL": 36.7,
+      "MathVista": 27.2,
+      "OCRBench": 33.4,
+      "AI2D": 60.9,
+      "HallusionBench": 35.2,
+      "MMVet": 29.8
+    }
+  },
+  {
+    "name": "VILA1.5-3B",
+    "date": "2024-08-25",
+    "score": 42.1,
+    "params": 3.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 58.8,
+      "MMStar": 40.6,
+      "MMMU_VAL": 34.2,
+      "MathVista": 31.8,
+      "OCRBench": 43.7,
+      "AI2D": 57.9,
+      "HallusionBench": 31.2,
+      "MMVet": 38.8
+    }
+  },
+  {
+    "name": "Llama-3-VILA1.5-8B",
+    "date": "2024-08-25",
+    "score": 44.0,
+    "params": 8.0,
+    "family": "Llama",
+    "benchmarks": {
+      "MMBench_V11": 57.9,
+      "MMStar": 39.7,
+      "MMMU_VAL": 37.4,
+      "MathVista": 37.4,
+      "OCRBench": 43.8,
+      "AI2D": 58.8,
+      "HallusionBench": 35.3,
+      "MMVet": 41.9
+    }
+  },
+  {
+    "name": "VILA1.5-13B",
+    "date": "2024-08-25",
+    "score": 49.5,
+    "params": 13.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 68.5,
+      "MMStar": 44.2,
+      "MMMU_VAL": 41.1,
+      "MathVista": 42.3,
+      "OCRBench": 46.0,
+      "AI2D": 69.9,
+      "HallusionBench": 39.3,
+      "MMVet": 45.0
+    }
+  },
+  {
+    "name": "VILA1.5-40B",
+    "date": "2024-08-25",
+    "score": 58.5,
+    "params": 40.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 79.7,
+      "MMStar": 55.2,
+      "MMMU_VAL": 55.1,
+      "MathVista": 49.7,
+      "OCRBench": 58.1,
+      "AI2D": 77.8,
+      "HallusionBench": 40.9,
+      "MMVet": 51.2
+    }
+  },
+  {
+    "name": "MMAlaya2",
+    "date": "2024-08-27",
+    "score": 62.6,
+    "params": 26.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 80.2,
+      "MMStar": 58.1,
+      "MMMU_VAL": 46.9,
+      "MathVista": 54.1,
+      "OCRBench": 72.7,
+      "AI2D": 80.8,
+      "HallusionBench": 49.3,
+      "MMVet": 58.5
+    }
+  },
+  {
+    "name": "Idefics3-8B-Llama3",
+    "date": "2024-08-27",
+    "score": 56.3,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 73.5,
+      "MMStar": 55.0,
+      "MMMU_VAL": 46.6,
+      "MathVista": 58.7,
+      "OCRBench": 55.0,
+      "AI2D": 76.5,
+      "HallusionBench": 43.7,
+      "MMVet": 41.7
+    }
+  },
+  {
+    "name": "Phi-3.5-Vision",
+    "date": "2024-08-28",
+    "score": 53.0,
+    "params": 4.0,
+    "family": "Phi",
+    "benchmarks": {
+      "MMBench_V11": 67.4,
+      "MMStar": 47.5,
+      "MMMU_VAL": 44.6,
+      "MathVista": 43.3,
+      "OCRBench": 59.9,
+      "AI2D": 77.8,
+      "HallusionBench": 40.5,
+      "MMVet": 43.2
+    }
+  },
+  {
+    "name": "XGen-MM-Instruct-Interleave-v1.5",
+    "date": "2024-09-06",
+    "score": 51.1,
+    "params": 4.4,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 69.8,
+      "MMStar": 48.4,
+      "MMMU_VAL": 40.9,
+      "MathVista": 40.6,
+      "OCRBench": 55.1,
+      "AI2D": 74.2,
+      "HallusionBench": 39.8,
+      "MMVet": 40.2
+    }
+  },
+  {
+    "name": "XGen-MM-Instruct-DPO-v1.5",
+    "date": "2024-09-06",
+    "score": 50.2,
+    "params": 4.4,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 70.3,
+      "MMStar": 47.2,
+      "MMMU_VAL": 40.1,
+      "MathVista": 40.1,
+      "OCRBench": 54.1,
+      "AI2D": 72.0,
+      "HallusionBench": 37.0,
+      "MMVet": 41.0
+    }
+  },
+  {
+    "name": "Mantis-8B-Fuyu",
+    "date": "2024-09-07",
+    "score": 34.2,
+    "params": 8.0,
+    "family": "Mantis",
+    "benchmarks": {
+      "MMBench_V11": 38.0,
+      "MMStar": 34.4,
+      "MMMU_VAL": 30.8,
+      "MathVista": 30.2,
+      "OCRBench": 36.6,
+      "AI2D": 46.8,
+      "HallusionBench": 29.8,
+      "MMVet": 27.3
+    }
+  },
+  {
+    "name": "Qwen2-VL-7B",
+    "date": "2024-09-12",
+    "score": 67.1,
+    "params": 8.0,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 81.0,
+      "MMStar": 60.7,
+      "MMMU_VAL": 53.7,
+      "MathVista": 61.6,
+      "OCRBench": 84.3,
+      "AI2D": 83.0,
+      "HallusionBench": 50.4,
+      "MMVet": 61.8
+    }
+  },
+  {
+    "name": "Qwen2-VL-2B",
+    "date": "2024-09-12",
+    "score": 57.3,
+    "params": 2.0,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 72.2,
+      "MMStar": 47.5,
+      "MMMU_VAL": 42.2,
+      "MathVista": 48.0,
+      "OCRBench": 79.7,
+      "AI2D": 74.7,
+      "HallusionBench": 42.4,
+      "MMVet": 51.5
+    }
+  },
+  {
+    "name": "Qwen-VL-Max-0809",
+    "date": "2024-09-12",
+    "score": 74.5,
+    "params": 72.0,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 85.8,
+      "MMStar": 69.2,
+      "MMMU_VAL": 64.6,
+      "MathVista": 68.3,
+      "OCRBench": 88.1,
+      "AI2D": 88.1,
+      "HallusionBench": 59.2,
+      "MMVet": 72.3
+    }
+  },
+  {
+    "name": "Slime-7B",
+    "date": "2024-09-14",
+    "score": 39.9,
+    "params": 7.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 58.7,
+      "MMStar": 37.3,
+      "MMMU_VAL": 36.6,
+      "MathVista": 36.9,
+      "OCRBench": 21.1,
+      "AI2D": 61.9,
+      "HallusionBench": 32.8,
+      "MMVet": 33.9
+    }
+  },
+  {
+    "name": "Slime-8B",
+    "date": "2024-09-14",
+    "score": 44.2,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 66.3,
+      "MMStar": 43.5,
+      "MMMU_VAL": 38.8,
+      "MathVista": 41.8,
+      "OCRBench": 23.3,
+      "AI2D": 68.5,
+      "HallusionBench": 31.8,
+      "MMVet": 40.0
+    }
+  },
+  {
+    "name": "Slime-13B",
+    "date": "2024-09-14",
+    "score": 41.5,
+    "params": 13.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 59.8,
+      "MMStar": 39.4,
+      "MMMU_VAL": 36.4,
+      "MathVista": 34.5,
+      "OCRBench": 24.5,
+      "AI2D": 66.0,
+      "HallusionBench": 32.1,
+      "MMVet": 38.9
+    }
+  },
+  {
+    "name": "Pixtral-12B",
+    "date": "2024-09-16",
+    "score": 61.0,
+    "params": 13.0,
+    "family": "Pixtral",
+    "benchmarks": {
+      "MMBench_V11": 72.7,
+      "MMStar": 54.5,
+      "MMMU_VAL": 51.1,
+      "MathVista": 56.3,
+      "OCRBench": 68.5,
+      "AI2D": 79.0,
+      "HallusionBench": 47.0,
+      "MMVet": 58.5
+    }
+  },
+  {
+    "name": "Gemini-1.5-Flash",
+    "date": "2024-09-16",
+    "score": 63.5,
+    "params": 8.0,
+    "family": "Google",
+    "benchmarks": {
+      "MMBench_V11": 76.9,
+      "MMStar": 55.8,
+      "MMMU_VAL": 58.2,
+      "MathVista": 51.3,
+      "OCRBench": 75.3,
+      "AI2D": 78.5,
+      "HallusionBench": 48.5,
+      "MMVet": 63.2
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "LLaVA-OneVision-0.5B",
+    "date": "2024-09-16",
+    "score": 42.5,
+    "params": 1.0,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 56.8,
+      "MMStar": 37.7,
+      "MMMU_VAL": 32.7,
+      "MathVista": 35.9,
+      "OCRBench": 58.3,
+      "AI2D": 59.4,
+      "HallusionBench": 27.9,
+      "MMVet": 31.5
+    }
+  },
+  {
+    "name": "LLaVA-OneVision-7B",
+    "date": "2024-09-16",
+    "score": 60.2,
+    "params": 8.0,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 80.9,
+      "MMStar": 61.9,
+      "MMMU_VAL": 47.9,
+      "MathVista": 62.6,
+      "OCRBench": 62.2,
+      "AI2D": 82.4,
+      "HallusionBench": 31.6,
+      "MMVet": 51.9
+    }
+  },
+  {
+    "name": "LLaVA-OneVision-0.5B (SI)",
+    "date": "2024-09-17",
+    "score": 41.3,
+    "params": 1.0,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 50.3,
+      "MMStar": 37.5,
+      "MMMU_VAL": 36.2,
+      "MathVista": 32.7,
+      "OCRBench": 56.5,
+      "AI2D": 53.5,
+      "HallusionBench": 31.7,
+      "MMVet": 32.2
+    }
+  },
+  {
+    "name": "LLaVA-OneVision-7B (SI)",
+    "date": "2024-09-17",
+    "score": 61.2,
+    "params": 8.0,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 76.8,
+      "MMStar": 56.7,
+      "MMMU_VAL": 46.8,
+      "MathVista": 58.6,
+      "OCRBench": 69.7,
+      "AI2D": 82.8,
+      "HallusionBench": 47.5,
+      "MMVet": 50.6
+    }
+  },
+  {
+    "name": "Qwen-VL-Plus-0809",
+    "date": "2024-09-17",
+    "score": 65.9,
+    "params": 72.0,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 74.9,
+      "MMStar": 59.9,
+      "MMMU_VAL": 53.2,
+      "MathVista": 61.2,
+      "OCRBench": 84.3,
+      "AI2D": 82.9,
+      "HallusionBench": 51.1,
+      "MMVet": 59.6
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "LLaVA-OneVision-72B (SI)",
+    "date": "2024-09-19",
+    "score": 67.6,
+    "params": 73.0,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 82.6,
+      "MMStar": 65.3,
+      "MMMU_VAL": 55.7,
+      "MathVista": 67.1,
+      "OCRBench": 76.3,
+      "AI2D": 85.5,
+      "HallusionBench": 49.0,
+      "MMVet": 59.1
+    }
+  },
+  {
+    "name": "LLaVA-OneVision-72B",
+    "date": "2024-09-19",
+    "score": 68.0,
+    "params": 73.0,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 84.5,
+      "MMStar": 65.8,
+      "MMMU_VAL": 56.6,
+      "MathVista": 68.4,
+      "OCRBench": 74.1,
+      "AI2D": 86.2,
+      "HallusionBench": 47.9,
+      "MMVet": 60.6
+    }
+  },
+  {
+    "name": "Ovis1.6-Gemma2-9B",
+    "date": "2024-09-19",
+    "score": 68.8,
+    "params": 10.2,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 80.5,
+      "MMStar": 62.9,
+      "MMMU_VAL": 55.0,
+      "MathVista": 67.3,
+      "OCRBench": 83.0,
+      "AI2D": 84.4,
+      "HallusionBench": 52.2,
+      "MMVet": 65.0
+    }
+  },
+  {
+    "name": "Eagle-X5-7B",
+    "date": "2024-09-26",
+    "score": 47.4,
+    "params": 9.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 64.0,
+      "MMStar": 41.7,
+      "MMMU_VAL": 37.6,
+      "MathVista": 38.8,
+      "OCRBench": 55.1,
+      "AI2D": 73.6,
+      "HallusionBench": 35.4,
+      "MMVet": 33.3
+    }
+  },
+  {
+    "name": "Eagle-X5-13B",
+    "date": "2024-09-26",
+    "score": 50.9,
+    "params": 15.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 67.6,
+      "MMStar": 43.7,
+      "MMMU_VAL": 39.7,
+      "MathVista": 40.8,
+      "OCRBench": 57.4,
+      "AI2D": 77.2,
+      "HallusionBench": 37.8,
+      "MMVet": 42.6
+    }
+  },
+  {
+    "name": "Moondream1",
+    "date": "2024-09-26",
+    "score": 33.2,
+    "params": 1.9,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 39.1,
+      "MMStar": 35.3,
+      "MMMU_VAL": 31.4,
+      "MathVista": 24.7,
+      "OCRBench": 30.9,
+      "AI2D": 49.1,
+      "HallusionBench": 29.2,
+      "MMVet": 26.0
+    }
+  },
+  {
+    "name": "MiniMonkey",
+    "date": "2024-09-26",
+    "score": 54.0,
+    "params": 2.2,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 68.9,
+      "MMStar": 50.4,
+      "MMMU_VAL": 35.0,
+      "MathVista": 45.6,
+      "OCRBench": 80.4,
+      "AI2D": 74.8,
+      "HallusionBench": 38.7,
+      "MMVet": 38.0
+    }
+  },
+  {
+    "name": "XinYuan-VL-2B-Instruct",
+    "date": "2024-09-27",
+    "score": 55.9,
+    "params": 2.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 75.2,
+      "MMStar": 52.3,
+      "MMMU_VAL": 42.9,
+      "MathVista": 47.7,
+      "OCRBench": 78.0,
+      "AI2D": 74.2,
+      "HallusionBench": 34.9,
+      "MMVet": 42.3
+    }
+  },
+  {
+    "name": "Llama-3.2-11B-Vision-Instruct",
+    "date": "2024-10-07",
+    "score": 57.7,
+    "params": 11.0,
+    "family": "Llama",
+    "benchmarks": {
+      "MMBench_V11": 65.8,
+      "MMStar": 49.8,
+      "MMMU_VAL": 48.0,
+      "MathVista": 47.7,
+      "OCRBench": 75.3,
+      "AI2D": 77.3,
+      "HallusionBench": 40.3,
+      "MMVet": 57.6
+    }
+  },
+  {
+    "name": "Step-1.5V",
+    "date": "2024-10-11",
+    "score": 72.4,
+    "params": 30.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 82.0,
+      "MMStar": 65.1,
+      "MMMU_VAL": 61.2,
+      "MathVista": 69.4,
+      "OCRBench": 88.6,
+      "AI2D": 87.5,
+      "HallusionBench": 54.3,
+      "MMVet": 71.3
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "POINTS-Yi-1.5-9B",
+    "date": "2024-10-11",
+    "score": 61.7,
+    "params": 9.5,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 78.4,
+      "MMStar": 56.9,
+      "MMMU_VAL": 47.6,
+      "MathVista": 63.2,
+      "OCRBench": 71.9,
+      "AI2D": 78.8,
+      "HallusionBench": 47.8,
+      "MMVet": 49.2
+    }
+  },
+  {
+    "name": "Molmo-7B-D",
+    "date": "2024-10-12",
+    "score": 57.4,
+    "params": 8.0,
+    "family": "Molmo",
+    "benchmarks": {
+      "MMBench_V11": 70.9,
+      "MMStar": 56.1,
+      "MMMU_VAL": 49.1,
+      "MathVista": 48.7,
+      "OCRBench": 65.6,
+      "AI2D": 81.0,
+      "HallusionBench": 46.4,
+      "MMVet": 41.5
+    }
+  },
+  {
+    "name": "POINTS-Qwen2.5-7B",
+    "date": "2024-10-19",
+    "score": 62.5,
+    "params": 8.3,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 78.0,
+      "MMStar": 60.9,
+      "MMMU_VAL": 51.4,
+      "MathVista": 63.1,
+      "OCRBench": 71.7,
+      "AI2D": 81.2,
+      "HallusionBench": 45.6,
+      "MMVet": 47.9
+    }
+  },
+  {
+    "name": "Kosmos2",
+    "date": "2024-10-19",
+    "score": 21.0,
+    "params": 1.7,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 1.1,
+      "MMStar": 24.9,
+      "MMMU_VAL": 23.7,
+      "MathVista": 24.5,
+      "OCRBench": 24.4,
+      "AI2D": 25.6,
+      "HallusionBench": 19.8,
+      "MMVet": 23.7
+    }
+  },
+  {
+    "name": "Llama-3.2-90B-Vision-Instruct",
+    "date": "2024-10-19",
+    "score": 63.4,
+    "params": 88.6,
+    "family": "Llama",
+    "benchmarks": {
+      "MMBench_V11": 77.3,
+      "MMStar": 55.3,
+      "MMMU_VAL": 60.3,
+      "MathVista": 58.2,
+      "OCRBench": 78.3,
+      "AI2D": 69.5,
+      "HallusionBench": 44.1,
+      "MMVet": 64.1
+    }
+  },
+  {
+    "name": "NVLM-D-72B",
+    "date": "2024-10-19",
+    "score": 67.6,
+    "params": 79.4,
+    "family": "NVLM",
+    "benchmarks": {
+      "MMBench_V11": 78.5,
+      "MMStar": 63.7,
+      "MMMU_VAL": 60.8,
+      "MathVista": 64.0,
+      "OCRBench": 84.9,
+      "AI2D": 80.1,
+      "HallusionBench": 49.7,
+      "MMVet": 58.9
+    }
+  },
+  {
+    "name": "Moondream2",
+    "date": "2024-10-20",
+    "score": 43.0,
+    "params": 1.9,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 48.1,
+      "MMStar": 42.1,
+      "MMMU_VAL": 29.3,
+      "MathVista": 33.8,
+      "OCRBench": 58.5,
+      "AI2D": 58.8,
+      "HallusionBench": 33.0,
+      "MMVet": 40.4
+    }
+  },
+  {
+    "name": "Molmo-7B-O",
+    "date": "2024-10-20",
+    "score": 52.0,
+    "params": 8.0,
+    "family": "Molmo",
+    "benchmarks": {
+      "MMBench_V11": 62.9,
+      "MMStar": 50.1,
+      "MMMU_VAL": 42.2,
+      "MathVista": 43.9,
+      "OCRBench": 61.6,
+      "AI2D": 75.7,
+      "HallusionBench": 39.4,
+      "MMVet": 40.6
+    }
+  },
+  {
+    "name": "MolmoE-1B",
+    "date": "2024-10-21",
+    "score": 46.1,
+    "params": 7.2,
+    "family": "Molmo",
+    "benchmarks": {
+      "MMBench_V11": 52.4,
+      "MMStar": 43.1,
+      "MMMU_VAL": 33.9,
+      "MathVista": 37.6,
+      "OCRBench": 54.7,
+      "AI2D": 71.0,
+      "HallusionBench": 38.0,
+      "MMVet": 37.8
+    }
+  },
+  {
+    "name": "Janus-1.3B",
+    "date": "2024-10-24",
+    "score": 40.2,
+    "params": 2.1,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 50.3,
+      "MMStar": 37.6,
+      "MMMU_VAL": 31.2,
+      "MathVista": 33.7,
+      "OCRBench": 48.2,
+      "AI2D": 52.8,
+      "HallusionBench": 30.3,
+      "MMVet": 37.5
+    }
+  },
+  {
+    "name": "Vintern-3B-beta",
+    "date": "2024-10-24",
+    "score": 52.0,
+    "params": 3.7,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 66.6,
+      "MMStar": 47.5,
+      "MMMU_VAL": 46.7,
+      "MathVista": 43.6,
+      "OCRBench": 61.8,
+      "AI2D": 69.1,
+      "HallusionBench": 43.2,
+      "MMVet": 37.8
+    }
+  },
+  {
+    "name": "Ovis1.6-Llama3.2-3B",
+    "date": "2024-10-24",
+    "score": 61.4,
+    "params": 4.1,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 74.1,
+      "MMStar": 52.0,
+      "MMMU_VAL": 46.7,
+      "MathVista": 58.9,
+      "OCRBench": 80.1,
+      "AI2D": 77.8,
+      "HallusionBench": 43.8,
+      "MMVet": 57.6
+    }
+  },
+  {
+    "name": "Aquila-VL-2B",
+    "date": "2024-10-24",
+    "score": 59.4,
+    "params": 2.2,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 75.2,
+      "MMStar": 54.9,
+      "MMMU_VAL": 46.9,
+      "MathVista": 59.1,
+      "OCRBench": 77.3,
+      "AI2D": 75.1,
+      "HallusionBench": 43.0,
+      "MMVet": 43.8
+    }
+  },
+  {
+    "name": "bailingMM-mini",
+    "date": "2024-10-24",
+    "score": 67.0,
+    "params": 17.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 82.2,
+      "MMStar": 61.3,
+      "MMMU_VAL": 50.0,
+      "MathVista": 70.8,
+      "OCRBench": 83.5,
+      "AI2D": 83.5,
+      "HallusionBench": 45.4,
+      "MMVet": 59.2
+    }
+  },
+  {
+    "name": "Molmo-72B",
+    "date": "2024-10-28",
+    "score": 64.0,
+    "params": 73.3,
+    "family": "Molmo",
+    "benchmarks": {
+      "MMBench_V11": 79.5,
+      "MMStar": 63.3,
+      "MMMU_VAL": 52.8,
+      "MathVista": 55.2,
+      "OCRBench": 70.1,
+      "AI2D": 83.4,
+      "HallusionBench": 46.6,
+      "MMVet": 61.1
+    }
+  },
+  {
+    "name": "Qwen2-VL-72B",
+    "date": "2024-10-28",
+    "score": 74.8,
+    "params": 73.4,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 85.9,
+      "MMStar": 68.6,
+      "MMMU_VAL": 64.3,
+      "MathVista": 69.7,
+      "OCRBench": 88.8,
+      "AI2D": 88.3,
+      "HallusionBench": 58.7,
+      "MMVet": 73.9
+    }
+  },
+  {
+    "name": "BlueLM-V-3B",
+    "date": "2024-10-30",
+    "score": 66.1,
+    "params": 3.0,
+    "family": "BlueLM",
+    "benchmarks": {
+      "MMBench_V11": 82.7,
+      "MMStar": 62.3,
+      "MMMU_VAL": 45.1,
+      "MathVista": 60.9,
+      "OCRBench": 82.9,
+      "AI2D": 85.3,
+      "HallusionBench": 48.0,
+      "MMVet": 61.8
+    }
+  },
+  {
+    "name": "Falcon2-VLM-11B",
+    "date": "2024-10-30",
+    "score": 48.7,
+    "params": 11.4,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 67.2,
+      "MMStar": 45.4,
+      "MMMU_VAL": 39.1,
+      "MathVista": 37.6,
+      "OCRBench": 49.1,
+      "AI2D": 77.9,
+      "HallusionBench": 35.9,
+      "MMVet": 37.2
+    }
+  },
+  {
+    "name": "H2OVL-800M",
+    "date": "2024-10-31",
+    "score": 43.5,
+    "params": 0.83,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 47.7,
+      "MMStar": 39.5,
+      "MMMU_VAL": 32.1,
+      "MathVista": 39.8,
+      "OCRBench": 75.4,
+      "AI2D": 53.5,
+      "HallusionBench": 29.6,
+      "MMVet": 30.2
+    }
+  },
+  {
+    "name": "H2OVL-2B",
+    "date": "2024-10-31",
+    "score": 54.1,
+    "params": 2.2,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 64.8,
+      "MMStar": 48.9,
+      "MMMU_VAL": 36.3,
+      "MathVista": 56.9,
+      "OCRBench": 77.8,
+      "AI2D": 70.9,
+      "HallusionBench": 35.9,
+      "MMVet": 41.1
+    }
+  },
+  {
+    "name": "Claude3.5-Sonnet-20241022",
+    "date": "2024-11-06",
+    "score": 70.6,
+    "params": 100.0,
+    "family": "Anthropic",
+    "benchmarks": {
+      "MMBench_V11": 81.7,
+      "MMStar": 65.1,
+      "MMMU_VAL": 66.4,
+      "MathVista": 65.3,
+      "OCRBench": 79.8,
+      "AI2D": 81.2,
+      "HallusionBench": 55.5,
+      "MMVet": 70.1
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Vintern-1B-v2",
+    "date": "2024-11-16",
+    "score": 42.5,
+    "params": 3.7,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 53.4,
+      "MMStar": 39.0,
+      "MMMU_VAL": 31.6,
+      "MathVista": 33.1,
+      "OCRBench": 62.7,
+      "AI2D": 56.5,
+      "HallusionBench": 37.7,
+      "MMVet": 26.4
+    }
+  },
+  {
+    "name": "RBDash-v1.5",
+    "date": "2024-11-17",
+    "score": 64.5,
+    "params": 79.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 81.3,
+      "MMStar": 63.5,
+      "MMMU_VAL": 59.9,
+      "MathVista": 61.5,
+      "OCRBench": 65.7,
+      "AI2D": 85.0,
+      "HallusionBench": 49.1,
+      "MMVet": 50.0
+    }
+  },
+  {
+    "name": "InternVL2-8B-MPO",
+    "date": "2024-11-25",
+    "score": 64.6,
+    "params": 8.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 76.5,
+      "MMStar": 62.5,
+      "MMMU_VAL": 48.0,
+      "MathVista": 65.8,
+      "OCRBench": 76.9,
+      "AI2D": 83.4,
+      "HallusionBench": 47.7,
+      "MMVet": 55.8
+    }
+  },
+  {
+    "name": "InternVL2-8B-MPO-CoT",
+    "date": "2024-11-25",
+    "score": 64.9,
+    "params": 8.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 75.7,
+      "MMStar": 62.2,
+      "MMMU_VAL": 48.1,
+      "MathVista": 65.9,
+      "OCRBench": 83.0,
+      "AI2D": 83.4,
+      "HallusionBench": 45.1,
+      "MMVet": 55.7
+    }
+  },
+  {
+    "name": "Eagle-X5-34B-Chat",
+    "date": "2024-11-29",
+    "score": 55.8,
+    "params": 36.8,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 75.8,
+      "MMStar": 55.5,
+      "MMMU_VAL": 51.2,
+      "MathVista": 52.7,
+      "OCRBench": 49.5,
+      "AI2D": 80.8,
+      "HallusionBench": 38.1,
+      "MMVet": 42.4
+    }
+  },
+  {
+    "name": "Ovis1.6-Gemma2-27B",
+    "date": "2024-11-29",
+    "score": 71.3,
+    "params": 28.9,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 82.2,
+      "MMStar": 63.5,
+      "MMMU_VAL": 60.3,
+      "MathVista": 70.2,
+      "OCRBench": 85.6,
+      "AI2D": 86.6,
+      "HallusionBench": 54.1,
+      "MMVet": 68.0
+    }
+  },
+  {
+    "name": "Gemini-1.5-Pro-002",
+    "date": "2024-12-02",
+    "score": 72.1,
+    "params": 60.0,
+    "family": "Google",
+    "benchmarks": {
+      "MMBench_V11": 82.8,
+      "MMStar": 67.1,
+      "MMMU_VAL": 68.6,
+      "MathVista": 67.9,
+      "OCRBench": 77.0,
+      "AI2D": 83.3,
+      "HallusionBench": 55.9,
+      "MMVet": 74.6
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Gemini-1.5-Flash-002",
+    "date": "2024-12-02",
+    "score": 68.9,
+    "params": 8.0,
+    "family": "Google",
+    "benchmarks": {
+      "MMBench_V11": 81.3,
+      "MMStar": 64.4,
+      "MMMU_VAL": 60.7,
+      "MathVista": 63.7,
+      "OCRBench": 73.3,
+      "AI2D": 84.4,
+      "HallusionBench": 53.9,
+      "MMVet": 69.7
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "GPT-4o (1120, detail-high)",
+    "date": "2024-12-02",
+    "score": 72.0,
+    "params": 200.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 84.3,
+      "MMStar": 65.1,
+      "MMMU_VAL": 70.7,
+      "MathVista": 60.0,
+      "OCRBench": 80.6,
+      "AI2D": 84.9,
+      "HallusionBench": 56.2,
+      "MMVet": 74.5
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Aria",
+    "date": "2024-12-05",
+    "score": 64.0,
+    "params": 25.3,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 77.4,
+      "MMStar": 60.7,
+      "MMMU_VAL": 54.0,
+      "MathVista": 62.4,
+      "OCRBench": 73.4,
+      "AI2D": 82.7,
+      "HallusionBench": 44.8,
+      "MMVet": 56.9
+    }
+  },
+  {
+    "name": "POINTS1.5-Qwen2.5-7B",
+    "date": "2024-12-06",
+    "score": 67.4,
+    "params": 8.3,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 80.7,
+      "MMStar": 61.1,
+      "MMMU_VAL": 53.8,
+      "MathVista": 66.4,
+      "OCRBench": 83.2,
+      "AI2D": 81.4,
+      "HallusionBench": 50.0,
+      "MMVet": 62.2
+    }
+  },
+  {
+    "name": "BailingMM-Lite-1203",
+    "date": "2024-12-08",
+    "score": 71.5,
+    "params": 21.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 83.4,
+      "MMStar": 67.3,
+      "MMMU_VAL": 50.9,
+      "MathVista": 74.5,
+      "OCRBench": 85.2,
+      "AI2D": 86.0,
+      "HallusionBench": 60.1,
+      "MMVet": 64.9
+    }
+  },
+  {
+    "name": "InternVL2.5-1B",
+    "date": "2024-12-10",
+    "score": 54.9,
+    "params": 1.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 66.5,
+      "MMStar": 51.3,
+      "MMMU_VAL": 41.2,
+      "MathVista": 47.1,
+      "OCRBench": 77.4,
+      "AI2D": 69.0,
+      "HallusionBench": 39.4,
+      "MMVet": 47.2
+    }
+  },
+  {
+    "name": "InternVL2.5-2B",
+    "date": "2024-12-10",
+    "score": 59.9,
+    "params": 2.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 70.9,
+      "MMStar": 54.3,
+      "MMMU_VAL": 43.2,
+      "MathVista": 51.1,
+      "OCRBench": 80.2,
+      "AI2D": 74.9,
+      "HallusionBench": 42.3,
+      "MMVet": 62.6
+    }
+  },
+  {
+    "name": "InternVL2.5-4B",
+    "date": "2024-12-10",
+    "score": 65.1,
+    "params": 4.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 78.2,
+      "MMStar": 58.7,
+      "MMMU_VAL": 51.8,
+      "MathVista": 60.8,
+      "OCRBench": 82.0,
+      "AI2D": 81.4,
+      "HallusionBench": 46.6,
+      "MMVet": 61.5
+    }
+  },
+  {
+    "name": "InternVL2.5-8B",
+    "date": "2024-12-10",
+    "score": 68.1,
+    "params": 8.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 82.5,
+      "MMStar": 63.2,
+      "MMMU_VAL": 56.2,
+      "MathVista": 64.5,
+      "OCRBench": 82.1,
+      "AI2D": 84.6,
+      "HallusionBench": 49.0,
+      "MMVet": 62.8
+    }
+  },
+  {
+    "name": "InternVL2.5-26B",
+    "date": "2024-12-10",
+    "score": 71.0,
+    "params": 26.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 84.6,
+      "MMStar": 66.5,
+      "MMMU_VAL": 56.0,
+      "MathVista": 68.2,
+      "OCRBench": 85.4,
+      "AI2D": 86.2,
+      "HallusionBench": 55.8,
+      "MMVet": 65.4
+    }
+  },
+  {
+    "name": "InternVL2.5-38B",
+    "date": "2024-12-10",
+    "score": 73.3,
+    "params": 38.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 85.4,
+      "MMStar": 68.5,
+      "MMMU_VAL": 63.2,
+      "MathVista": 72.4,
+      "OCRBench": 84.1,
+      "AI2D": 87.6,
+      "HallusionBench": 57.9,
+      "MMVet": 67.2
+    }
+  },
+  {
+    "name": "InternVL2.5-78B",
+    "date": "2024-12-10",
+    "score": 68.3,
+    "params": 78.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 87.5,
+      "MMStar": 69.5,
+      "MMMU_VAL": 70.0,
+      "MathVista": 70.6,
+      "OCRBench": 85.3,
+      "AI2D": 89.1,
+      "HallusionBench": 57.4,
+      "MMVet": 16.9
+    }
+  },
+  {
+    "name": "Taiyi",
+    "date": "2024-12-11",
+    "score": 73.0,
+    "params": 7.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 84.8,
+      "MMStar": 69.0,
+      "MMMU_VAL": 60.4,
+      "MathVista": 72.6,
+      "OCRBench": 82.0,
+      "AI2D": 90.8,
+      "HallusionBench": 56.8,
+      "MMVet": 67.9
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "GLM-4v-Plus",
+    "date": "2024-12-11",
+    "score": 71.4,
+    "params": 13.0,
+    "family": "GLM",
+    "benchmarks": {
+      "MMBench_V11": 80.3,
+      "MMStar": 66.3,
+      "MMMU_VAL": 61.7,
+      "MathVista": 68.8,
+      "OCRBench": 84.3,
+      "AI2D": 85.1,
+      "HallusionBench": 55.6,
+      "MMVet": 69.1
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Step-1.5V-mini",
+    "date": "2024-12-11",
+    "score": 64.5,
+    "params": 30.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 79.7,
+      "MMStar": 54.7,
+      "MMMU_VAL": 51.7,
+      "MathVista": 57.8,
+      "OCRBench": 77.3,
+      "AI2D": 81.3,
+      "HallusionBench": 46.7,
+      "MMVet": 66.5
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "abab6.5s",
+    "date": "2024-12-11",
+    "score": 40.9,
+    "params": 70.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 57.7,
+      "MMStar": 32.1,
+      "MMMU_VAL": 34.0,
+      "MathVista": 23.5,
+      "OCRBench": 62.2,
+      "AI2D": 52.0,
+      "HallusionBench": 33.4,
+      "MMVet": 32.2
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "abab7-preview",
+    "date": "2024-12-11",
+    "score": 69.7,
+    "params": 100.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 82.0,
+      "MMStar": 66.0,
+      "MMMU_VAL": 64.8,
+      "MathVista": 67.5,
+      "OCRBench": 79.4,
+      "AI2D": 82.3,
+      "HallusionBench": 51.7,
+      "MMVet": 63.7
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "SenseNova",
+    "date": "2024-12-12",
+    "score": 77.4,
+    "params": 40.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 85.7,
+      "MMStar": 72.7,
+      "MMMU_VAL": 69.6,
+      "MathVista": 78.4,
+      "OCRBench": 89.4,
+      "AI2D": 87.8,
+      "HallusionBench": 57.4,
+      "MMVet": 78.2
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "SAIL-VL-2B",
+    "date": "2024-12-25",
+    "score": 61.0,
+    "params": 2.1,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 73.7,
+      "MMStar": 56.5,
+      "MMMU_VAL": 44.1,
+      "MathVista": 62.8,
+      "OCRBench": 83.1,
+      "AI2D": 77.4,
+      "HallusionBench": 45.9,
+      "MMVet": 44.2
+    }
+  },
+  {
+    "name": "InternVL2.5-1B-MPO",
+    "date": "2024-12-28",
+    "score": 54.8,
+    "params": 1.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 65.8,
+      "MMStar": 49.5,
+      "MMMU_VAL": 40.3,
+      "MathVista": 47.7,
+      "OCRBench": 84.3,
+      "AI2D": 68.5,
+      "HallusionBench": 34.8,
+      "MMVet": 47.2
+    }
+  },
+  {
+    "name": "InternVL2.5-2B-MPO",
+    "date": "2024-12-28",
+    "score": 60.9,
+    "params": 2.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 70.7,
+      "MMStar": 54.9,
+      "MMMU_VAL": 44.6,
+      "MathVista": 53.4,
+      "OCRBench": 83.8,
+      "AI2D": 75.1,
+      "HallusionBench": 40.7,
+      "MMVet": 64.2
+    }
+  },
+  {
+    "name": "InternVL2.5-4B-MPO",
+    "date": "2024-12-28",
+    "score": 67.2,
+    "params": 4.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 77.8,
+      "MMStar": 61.0,
+      "MMMU_VAL": 51.8,
+      "MathVista": 64.1,
+      "OCRBench": 87.9,
+      "AI2D": 81.5,
+      "HallusionBench": 47.5,
+      "MMVet": 66.0
+    }
+  },
+  {
+    "name": "InternVL2.5-8B-MPO",
+    "date": "2024-12-28",
+    "score": 70.3,
+    "params": 8.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 82.0,
+      "MMStar": 65.2,
+      "MMMU_VAL": 54.8,
+      "MathVista": 67.9,
+      "OCRBench": 88.2,
+      "AI2D": 84.5,
+      "HallusionBench": 51.7,
+      "MMVet": 68.1
+    }
+  },
+  {
+    "name": "InternVL2.5-26B-MPO",
+    "date": "2024-12-28",
+    "score": 72.1,
+    "params": 26.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 84.2,
+      "MMStar": 67.7,
+      "MMMU_VAL": 56.4,
+      "MathVista": 71.5,
+      "OCRBench": 90.5,
+      "AI2D": 86.2,
+      "HallusionBench": 52.4,
+      "MMVet": 68.1
+    }
+  },
+  {
+    "name": "InternVL2.5-38B-MPO",
+    "date": "2024-12-28",
+    "score": 75.3,
+    "params": 38.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 85.4,
+      "MMStar": 70.1,
+      "MMMU_VAL": 63.8,
+      "MathVista": 73.6,
+      "OCRBench": 89.4,
+      "AI2D": 87.9,
+      "HallusionBench": 59.7,
+      "MMVet": 72.6
+    }
+  },
+  {
+    "name": "Valley-Eagle",
+    "date": "2024-12-29",
+    "score": 67.4,
+    "params": 8.9,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 80.7,
+      "MMStar": 60.9,
+      "MMMU_VAL": 57.0,
+      "MathVista": 64.6,
+      "OCRBench": 84.2,
+      "AI2D": 82.5,
+      "HallusionBench": 48.0,
+      "MMVet": 61.3
+    }
+  },
+  {
+    "name": "InternVL2.5-78B-MPO",
+    "date": "2024-12-29",
+    "score": 77.0,
+    "params": 78.0,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 87.7,
+      "MMStar": 72.1,
+      "MMMU_VAL": 68.2,
+      "MathVista": 76.6,
+      "OCRBench": 90.9,
+      "AI2D": 89.2,
+      "HallusionBench": 58.1,
+      "MMVet": 73.5
+    }
+  },
+  {
+    "name": "TeleMM",
+    "date": "2024-12-31",
+    "score": 75.9,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 79.9,
+      "MMStar": 70.8,
+      "MMMU_VAL": 66.6,
+      "MathVista": 75.7,
+      "OCRBench": 89.1,
+      "AI2D": 88.5,
+      "HallusionBench": 60.6,
+      "MMVet": 75.7
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "DeepSeek-VL2-Tiny",
+    "date": "2025-01-01",
+    "score": 58.1,
+    "params": 3.4,
+    "family": "DeepSeek",
+    "benchmarks": {
+      "MMBench_V11": 70.9,
+      "MMStar": 49.8,
+      "MMMU_VAL": 42.9,
+      "MathVista": 54.0,
+      "OCRBench": 80.5,
+      "AI2D": 74.6,
+      "HallusionBench": 39.6,
+      "MMVet": 52.5
+    }
+  },
+  {
+    "name": "DeepSeek-VL2-Small",
+    "date": "2025-01-01",
+    "score": 64.5,
+    "params": 16.1,
+    "family": "DeepSeek",
+    "benchmarks": {
+      "MMBench_V11": 79.9,
+      "MMStar": 57.5,
+      "MMMU_VAL": 49.7,
+      "MathVista": 61.9,
+      "OCRBench": 83.2,
+      "AI2D": 81.7,
+      "HallusionBench": 43.8,
+      "MMVet": 58.6
+    }
+  },
+  {
+    "name": "VITA-1.5",
+    "date": "2025-01-01",
+    "score": 63.3,
+    "params": 8.3,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 76.8,
+      "MMStar": 60.2,
+      "MMMU_VAL": 52.6,
+      "MathVista": 66.2,
+      "OCRBench": 74.1,
+      "AI2D": 79.2,
+      "HallusionBench": 44.6,
+      "MMVet": 52.7
+    }
+  },
+  {
+    "name": "DeepSeek-VL2",
+    "date": "2025-01-01",
+    "score": 66.4,
+    "params": 27.5,
+    "family": "DeepSeek",
+    "benchmarks": {
+      "MMBench_V11": 81.2,
+      "MMStar": 61.9,
+      "MMMU_VAL": 54.0,
+      "MathVista": 63.9,
+      "OCRBench": 80.9,
+      "AI2D": 83.8,
+      "HallusionBench": 45.3,
+      "MMVet": 60.0
+    }
+  },
+  {
+    "name": "VARCO-VISION-14B",
+    "date": "2025-01-02",
+    "score": 66.8,
+    "params": 15.2,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 81.2,
+      "MMStar": 64.1,
+      "MMMU_VAL": 56.3,
+      "MathVista": 67.6,
+      "OCRBench": 81.5,
+      "AI2D": 83.9,
+      "HallusionBench": 46.8,
+      "MMVet": 53.0
+    }
+  },
+  {
+    "name": "Gemini-2.0-Flash",
+    "date": "2025-01-02",
+    "score": 72.6,
+    "params": 8.0,
+    "family": "Google",
+    "benchmarks": {
+      "MMBench_V11": 71.0,
+      "MMStar": 69.4,
+      "MMMU_VAL": 69.9,
+      "MathVista": 70.4,
+      "OCRBench": 85.1,
+      "AI2D": 83.1,
+      "HallusionBench": 58.0,
+      "MMVet": 73.6
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "LLaVA-CoT",
+    "date": "2025-01-05",
+    "score": 61.9,
+    "params": 11.0,
+    "family": "LLaVA",
+    "benchmarks": {
+      "MMBench_V11": 72.9,
+      "MMStar": 54.9,
+      "MMMU_VAL": 53.7,
+      "MathVista": 52.5,
+      "OCRBench": 75.5,
+      "AI2D": 78.7,
+      "HallusionBench": 47.7,
+      "MMVet": 59.5
+    }
+  },
+  {
+    "name": "Step-1o",
+    "date": "2025-01-13",
+    "score": 77.7,
+    "params": 30.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 87.3,
+      "MMStar": 69.3,
+      "MMMU_VAL": 69.9,
+      "MathVista": 74.7,
+      "OCRBench": 92.6,
+      "AI2D": 89.1,
+      "HallusionBench": 55.8,
+      "MMVet": 82.8
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "HunYuan-Standard-Vision",
+    "date": "2025-01-15",
+    "score": 76.3,
+    "params": 52.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 83.6,
+      "MMStar": 72.9,
+      "MMMU_VAL": 70.7,
+      "MathVista": 66.1,
+      "OCRBench": 86.1,
+      "AI2D": 93.2,
+      "HallusionBench": 57.7,
+      "MMVet": 79.9
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Ross-Qwen2-7B",
+    "date": "2025-01-17",
+    "score": 55.9,
+    "params": 8.2,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 75.4,
+      "MMStar": 53.9,
+      "MMMU_VAL": 49.0,
+      "MathVista": 52.5,
+      "OCRBench": 55.3,
+      "AI2D": 79.4,
+      "HallusionBench": 38.7,
+      "MMVet": 43.2
+    }
+  },
+  {
+    "name": "VITA",
+    "date": "2025-01-20",
+    "score": 54.2,
+    "params": 47.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 69.8,
+      "MMStar": 46.6,
+      "MMMU_VAL": 47.6,
+      "MathVista": 44.5,
+      "OCRBench": 68.3,
+      "AI2D": 72.8,
+      "HallusionBench": 41.0,
+      "MMVet": 43.2
+    }
+  },
+  {
+    "name": "MiniCPM-o-2.6",
+    "date": "2025-01-21",
+    "score": 70.2,
+    "params": 8.67,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 80.6,
+      "MMStar": 63.3,
+      "MMMU_VAL": 50.9,
+      "MathVista": 73.3,
+      "OCRBench": 88.9,
+      "AI2D": 86.1,
+      "HallusionBench": 51.1,
+      "MMVet": 67.2
+    }
+  },
+  {
+    "name": "BailingMM-Pro-0120",
+    "date": "2025-01-25",
+    "score": 75.2,
+    "params": 81.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 87.1,
+      "MMStar": 69.4,
+      "MMMU_VAL": 59.2,
+      "MathVista": 72.3,
+      "OCRBench": 89.4,
+      "AI2D": 87.2,
+      "HallusionBench": 59.4,
+      "MMVet": 77.6
+    }
+  },
+  {
+    "name": "GLM-4v-Plus-20250111",
+    "date": "2025-01-25",
+    "score": 76.7,
+    "params": 13.0,
+    "family": "GLM",
+    "benchmarks": {
+      "MMBench_V11": 85.9,
+      "MMStar": 72.5,
+      "MMMU_VAL": 69.9,
+      "MathVista": 73.5,
+      "OCRBench": 90.8,
+      "AI2D": 86.7,
+      "HallusionBench": 58.5,
+      "MMVet": 75.7
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Emu3_chat",
+    "date": "2025-01-26",
+    "score": 47.5,
+    "params": 8.49,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 52.7,
+      "MMStar": 46.6,
+      "MMMU_VAL": 33.9,
+      "MathVista": 47.6,
+      "OCRBench": 66.7,
+      "AI2D": 71.5,
+      "HallusionBench": 31.7,
+      "MMVet": 29.1
+    }
+  },
+  {
+    "name": "SmolVLM-Instruct",
+    "date": "2025-01-27",
+    "score": 48.1,
+    "params": 2.3,
+    "family": "SmolVLM",
+    "benchmarks": {
+      "MMBench_V11": 57.4,
+      "MMStar": 41.7,
+      "MMMU_VAL": 38.8,
+      "MathVista": 43.6,
+      "OCRBench": 65.6,
+      "AI2D": 64.2,
+      "HallusionBench": 39.5,
+      "MMVet": 33.8
+    }
+  },
+  {
+    "name": "SmolVLM-Instruct-DPO",
+    "date": "2025-01-27",
+    "score": 44.8,
+    "params": 2.3,
+    "family": "SmolVLM",
+    "benchmarks": {
+      "MMBench_V11": 55.4,
+      "MMStar": 39.2,
+      "MMMU_VAL": 39.7,
+      "MathVista": 42.9,
+      "OCRBench": 50.0,
+      "AI2D": 62.2,
+      "HallusionBench": 39.8,
+      "MMVet": 29.3
+    }
+  },
+  {
+    "name": "SmolVLM-Synthetic",
+    "date": "2025-01-27",
+    "score": 38.6,
+    "params": 2.3,
+    "family": "SmolVLM",
+    "benchmarks": {
+      "MMBench_V11": 43.1,
+      "MMStar": 34.9,
+      "MMMU_VAL": 38.6,
+      "MathVista": 31.5,
+      "OCRBench": 46.1,
+      "AI2D": 50.8,
+      "HallusionBench": 34.8,
+      "MMVet": 29.3
+    }
+  },
+  {
+    "name": "SmolVLM-256M",
+    "date": "2025-01-27",
+    "score": 34.4,
+    "params": 0.26,
+    "family": "SmolVLM",
+    "benchmarks": {
+      "MMBench_V11": 26.9,
+      "MMStar": 34.5,
+      "MMMU_VAL": 28.9,
+      "MathVista": 37.0,
+      "OCRBench": 52.7,
+      "AI2D": 46.4,
+      "HallusionBench": 27.9,
+      "MMVet": 21.1
+    }
+  },
+  {
+    "name": "SmolVLM-500M",
+    "date": "2025-01-27",
+    "score": 41.3,
+    "params": 0.51,
+    "family": "SmolVLM",
+    "benchmarks": {
+      "MMBench_V11": 41.9,
+      "MMStar": 38.3,
+      "MMMU_VAL": 33.6,
+      "MathVista": 39.8,
+      "OCRBench": 60.9,
+      "AI2D": 59.2,
+      "HallusionBench": 31.1,
+      "MMVet": 25.7
+    }
+  },
+  {
+    "name": "Janus-Pro-7B",
+    "date": "2025-02-02",
+    "score": 50.2,
+    "params": 7.42,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 59.1,
+      "MMStar": 46.5,
+      "MMMU_VAL": 41.6,
+      "MathVista": 42.5,
+      "OCRBench": 59.5,
+      "AI2D": 68.1,
+      "HallusionBench": 39.5,
+      "MMVet": 45.1
+    }
+  },
+  {
+    "name": "Qwen2.5-VL-3B",
+    "date": "2025-02-02",
+    "score": 64.5,
+    "params": 3.75,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 76.8,
+      "MMStar": 56.3,
+      "MMMU_VAL": 51.2,
+      "MathVista": 61.2,
+      "OCRBench": 82.8,
+      "AI2D": 81.4,
+      "HallusionBench": 46.6,
+      "MMVet": 60.0
+    }
+  },
+  {
+    "name": "Qwen2.5-VL-7B",
+    "date": "2025-02-02",
+    "score": 70.9,
+    "params": 8.29,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 82.2,
+      "MMStar": 64.1,
+      "MMMU_VAL": 58.0,
+      "MathVista": 68.1,
+      "OCRBench": 88.8,
+      "AI2D": 84.3,
+      "HallusionBench": 51.9,
+      "MMVet": 69.7
+    }
+  },
+  {
+    "name": "Qwen2.5-VL-72B",
+    "date": "2025-02-02",
+    "score": 76.1,
+    "params": 73.4,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 87.8,
+      "MMStar": 70.5,
+      "MMMU_VAL": 68.2,
+      "MathVista": 74.2,
+      "OCRBench": 88.2,
+      "AI2D": 88.5,
+      "HallusionBench": 54.6,
+      "MMVet": 76.9
+    }
+  },
+  {
+    "name": "Ola-7b",
+    "date": "2025-02-05",
+    "score": 72.6,
+    "params": 8.88,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 84.3,
+      "MMStar": 70.8,
+      "MMMU_VAL": 57.0,
+      "MathVista": 68.4,
+      "OCRBench": 82.2,
+      "AI2D": 86.1,
+      "HallusionBench": 53.5,
+      "MMVet": 78.6
+    }
+  },
+  {
+    "name": "Ovis2-1B",
+    "date": "2025-02-18",
+    "score": 59.6,
+    "params": 1.27,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 68.3,
+      "MMStar": 52.1,
+      "MMMU_VAL": 36.1,
+      "MathVista": 59.4,
+      "OCRBench": 89.0,
+      "AI2D": 76.4,
+      "HallusionBench": 45.2,
+      "MMVet": 50.0
+    }
+  },
+  {
+    "name": "Ovis2-2B",
+    "date": "2025-02-18",
+    "score": 65.2,
+    "params": 2.46,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 76.9,
+      "MMStar": 56.7,
+      "MMMU_VAL": 45.6,
+      "MathVista": 64.1,
+      "OCRBench": 87.3,
+      "AI2D": 82.7,
+      "HallusionBench": 50.2,
+      "MMVet": 58.3
+    }
+  },
+  {
+    "name": "Ovis2-4B",
+    "date": "2025-02-18",
+    "score": 69.8,
+    "params": 4.62,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 81.4,
+      "MMStar": 61.9,
+      "MMMU_VAL": 49.0,
+      "MathVista": 69.6,
+      "OCRBench": 91.1,
+      "AI2D": 85.7,
+      "HallusionBench": 53.8,
+      "MMVet": 65.5
+    }
+  },
+  {
+    "name": "Ovis2-8B",
+    "date": "2025-02-18",
+    "score": 71.8,
+    "params": 8.94,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 83.6,
+      "MMStar": 64.6,
+      "MMMU_VAL": 57.4,
+      "MathVista": 71.8,
+      "OCRBench": 89.1,
+      "AI2D": 86.6,
+      "HallusionBench": 56.3,
+      "MMVet": 65.1
+    }
+  },
+  {
+    "name": "Ovis2-16B",
+    "date": "2025-02-18",
+    "score": 73.3,
+    "params": 16.2,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 85.7,
+      "MMStar": 67.2,
+      "MMMU_VAL": 60.7,
+      "MathVista": 73.7,
+      "OCRBench": 87.9,
+      "AI2D": 86.3,
+      "HallusionBench": 56.8,
+      "MMVet": 68.4
+    }
+  },
+  {
+    "name": "Ovis2-34B",
+    "date": "2025-02-18",
+    "score": 76.5,
+    "params": 34.9,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 86.5,
+      "MMStar": 69.2,
+      "MMMU_VAL": 66.7,
+      "MathVista": 76.1,
+      "OCRBench": 89.4,
+      "AI2D": 88.3,
+      "HallusionBench": 58.8,
+      "MMVet": 77.1
+    }
+  },
+  {
+    "name": "Gemini-2.0-Pro",
+    "date": "2025-02-27",
+    "score": 73.3,
+    "params": 70.0,
+    "family": "Google",
+    "benchmarks": {
+      "MMBench_V11": 83.0,
+      "MMStar": 68.5,
+      "MMMU_VAL": 72.6,
+      "MathVista": 71.3,
+      "OCRBench": 86.3,
+      "AI2D": 84.8,
+      "HallusionBench": 49.8,
+      "MMVet": 70.4
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Claude3.7-Sonnet",
+    "date": "2025-02-27",
+    "score": 70.1,
+    "params": 120.0,
+    "family": "Anthropic",
+    "benchmarks": {
+      "MMBench_V11": 79.7,
+      "MMStar": 65.1,
+      "MMMU_VAL": 71.0,
+      "MathVista": 66.8,
+      "OCRBench": 70.1,
+      "AI2D": 82.5,
+      "HallusionBench": 55.4,
+      "MMVet": 70.0
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "moonshot-v1-8k",
+    "date": "2025-03-03",
+    "score": 65.0,
+    "params": 8.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 76.5,
+      "MMStar": 60.1,
+      "MMMU_VAL": 57.7,
+      "MathVista": 66.9,
+      "OCRBench": 79.0,
+      "AI2D": 81.8,
+      "HallusionBench": 46.1,
+      "MMVet": 52.0
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "grok-2-vision-1212",
+    "date": "2025-03-03",
+    "score": 66.9,
+    "params": 314.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 82.9,
+      "MMStar": 65.2,
+      "MMMU_VAL": 67.1,
+      "MathVista": 66.6,
+      "OCRBench": 55.5,
+      "AI2D": 81.2,
+      "HallusionBench": 51.7,
+      "MMVet": 65.2
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "SmolVLM2",
+    "date": "2025-03-13",
+    "score": 52.2,
+    "params": 2.25,
+    "family": "SmolVLM",
+    "benchmarks": {
+      "MMBench_V11": 61.1,
+      "MMStar": 46.0,
+      "MMMU_VAL": 41.6,
+      "MathVista": 51.5,
+      "OCRBench": 72.5,
+      "AI2D": 69.7,
+      "HallusionBench": 40.6,
+      "MMVet": 34.9
+    }
+  },
+  {
+    "name": "SmolVLM2-256M",
+    "date": "2025-03-13",
+    "score": 30.8,
+    "params": 0.26,
+    "family": "SmolVLM",
+    "benchmarks": {
+      "MMBench_V11": 6.5,
+      "MMStar": 30.9,
+      "MMMU_VAL": 29.0,
+      "MathVista": 34.0,
+      "OCRBench": 56.6,
+      "AI2D": 39.2,
+      "HallusionBench": 24.3,
+      "MMVet": 25.5
+    }
+  },
+  {
+    "name": "SmolVLM2-500M",
+    "date": "2025-03-13",
+    "score": 40.9,
+    "params": 0.51,
+    "family": "SmolVLM",
+    "benchmarks": {
+      "MMBench_V11": 41.6,
+      "MMStar": 38.2,
+      "MMMU_VAL": 34.1,
+      "MathVista": 37.5,
+      "OCRBench": 60.9,
+      "AI2D": 57.3,
+      "HallusionBench": 27.7,
+      "MMVet": 29.9
+    }
+  },
+  {
+    "name": "Phi-4-MultiModal",
+    "date": "2025-03-13",
+    "score": 64.7,
+    "params": 5.57,
+    "family": "Phi",
+    "benchmarks": {
+      "MMBench_V11": 77.2,
+      "MMStar": 58.9,
+      "MMMU_VAL": 56.0,
+      "MathVista": 65.8,
+      "OCRBench": 84.4,
+      "AI2D": 83.0,
+      "HallusionBench": 40.5,
+      "MMVet": 51.9
+    }
+  },
+  {
+    "name": "MUG-U-7B",
+    "date": "2025-03-19",
+    "score": 71.5,
+    "params": 7.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 81.8,
+      "MMStar": 66.6,
+      "MMMU_VAL": 54.3,
+      "MathVista": 74.8,
+      "OCRBench": 91.1,
+      "AI2D": 88.9,
+      "HallusionBench": 51.3,
+      "MMVet": 63.0
+    }
+  },
+  {
+    "name": "Gemma3-4B",
+    "date": "2025-03-19",
+    "score": 55.4,
+    "params": 4.3,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 66.4,
+      "MMStar": 47.9,
+      "MMMU_VAL": 47.3,
+      "MathVista": 46.3,
+      "OCRBench": 66.0,
+      "AI2D": 70.7,
+      "HallusionBench": 40.8,
+      "MMVet": 57.8
+    }
+  },
+  {
+    "name": "Gemma3-12B",
+    "date": "2025-03-19",
+    "score": 62.8,
+    "params": 12.2,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 74.6,
+      "MMStar": 56.1,
+      "MMMU_VAL": 55.2,
+      "MathVista": 56.1,
+      "OCRBench": 70.2,
+      "AI2D": 78.1,
+      "HallusionBench": 47.2,
+      "MMVet": 64.9
+    }
+  },
+  {
+    "name": "Gemma3-27B",
+    "date": "2025-03-19",
+    "score": 67.5,
+    "params": 27.4,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 78.9,
+      "MMStar": 59.6,
+      "MMMU_VAL": 64.8,
+      "MathVista": 59.8,
+      "OCRBench": 75.3,
+      "AI2D": 81.4,
+      "HallusionBench": 48.8,
+      "MMVet": 71.0
+    }
+  },
+  {
+    "name": "AKI-4B",
+    "date": "2025-03-25",
+    "score": 39.5,
+    "params": 4.33,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 55.6,
+      "MMStar": 37.8,
+      "MMMU_VAL": 36.3,
+      "MathVista": 28.5,
+      "OCRBench": 30.8,
+      "AI2D": 56.5,
+      "HallusionBench": 33.9,
+      "MMVet": 36.2
+    }
+  },
+  {
+    "name": "GPT-4.5",
+    "date": "2025-03-26",
+    "score": 75.3,
+    "params": 250.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 83.4,
+      "MMStar": 69.3,
+      "MMMU_VAL": 72.1,
+      "MathVista": 70.5,
+      "OCRBench": 84.5,
+      "AI2D": 87.2,
+      "HallusionBench": 60.0,
+      "MMVet": 75.3
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Ristretto-3B",
+    "date": "2025-04-01",
+    "score": 67.7,
+    "params": 3.84,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 80.2,
+      "MMStar": 62.8,
+      "MMMU_VAL": 51.3,
+      "MathVista": 67.6,
+      "OCRBench": 84.7,
+      "AI2D": 84.2,
+      "HallusionBench": 50.2,
+      "MMVet": 60.7
+    }
+  },
+  {
+    "name": "ChatGPT-4o-latest",
+    "date": "2025-04-07",
+    "score": 75.4,
+    "params": 200.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 86.0,
+      "MMStar": 70.2,
+      "MMMU_VAL": 72.9,
+      "MathVista": 71.6,
+      "OCRBench": 82.2,
+      "AI2D": 86.3,
+      "HallusionBench": 57.0,
+      "MMVet": 76.9
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Gemini-2.5-Pro",
+    "date": "2025-04-07",
+    "score": 80.1,
+    "params": 70.0,
+    "family": "Google",
+    "benchmarks": {
+      "MMBench_V11": 88.3,
+      "MMStar": 73.6,
+      "MMMU_VAL": 74.7,
+      "MathVista": 80.9,
+      "OCRBench": 86.2,
+      "AI2D": 89.5,
+      "HallusionBench": 64.1,
+      "MMVet": 83.3
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Kimi-VL-A3B-Instruct",
+    "date": "2025-04-14",
+    "score": 69.1,
+    "params": 16.4,
+    "family": "Kimi",
+    "benchmarks": {
+      "MMBench_V11": 80.8,
+      "MMStar": 62.0,
+      "MMMU_VAL": 57.8,
+      "MathVista": 66.0,
+      "OCRBench": 87.1,
+      "AI2D": 84.5,
+      "HallusionBench": 48.4,
+      "MMVet": 66.1
+    }
+  },
+  {
+    "name": "InternVL3-1B",
+    "date": "2025-04-14",
+    "score": 57.0,
+    "params": 0.94,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 68.2,
+      "MMStar": 52.3,
+      "MMMU_VAL": 43.2,
+      "MathVista": 46.9,
+      "OCRBench": 79.8,
+      "AI2D": 69.7,
+      "HallusionBench": 37.2,
+      "MMVet": 58.7
+    }
+  },
+  {
+    "name": "InternVL3-2B",
+    "date": "2025-04-14",
+    "score": 64.5,
+    "params": 2.09,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 78.0,
+      "MMStar": 61.1,
+      "MMMU_VAL": 48.7,
+      "MathVista": 57.6,
+      "OCRBench": 83.1,
+      "AI2D": 78.6,
+      "HallusionBench": 41.9,
+      "MMVet": 67.0
+    }
+  },
+  {
+    "name": "InternVL3-8B",
+    "date": "2025-04-14",
+    "score": 73.6,
+    "params": 7.94,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 82.1,
+      "MMStar": 68.7,
+      "MMMU_VAL": 62.2,
+      "MathVista": 70.5,
+      "OCRBench": 88.4,
+      "AI2D": 85.1,
+      "HallusionBench": 49.0,
+      "MMVet": 82.8
+    }
+  },
+  {
+    "name": "InternVL3-9B",
+    "date": "2025-04-14",
+    "score": 72.6,
+    "params": 9.14,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 82.2,
+      "MMStar": 67.4,
+      "MMMU_VAL": 59.4,
+      "MathVista": 69.0,
+      "OCRBench": 88.1,
+      "AI2D": 85.2,
+      "HallusionBench": 50.8,
+      "MMVet": 78.4
+    }
+  },
+  {
+    "name": "InternVL3-14B",
+    "date": "2025-04-14",
+    "score": 75.2,
+    "params": 15.1,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 83.6,
+      "MMStar": 68.9,
+      "MMMU_VAL": 64.8,
+      "MathVista": 74.4,
+      "OCRBench": 87.7,
+      "AI2D": 86.0,
+      "HallusionBench": 55.9,
+      "MMVet": 80.5
+    }
+  },
+  {
+    "name": "InternVL3-38B",
+    "date": "2025-04-14",
+    "score": 77.8,
+    "params": 38.4,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 86.8,
+      "MMStar": 72.6,
+      "MMMU_VAL": 69.7,
+      "MathVista": 76.3,
+      "OCRBench": 88.6,
+      "AI2D": 88.7,
+      "HallusionBench": 58.4,
+      "MMVet": 81.1
+    }
+  },
+  {
+    "name": "InternVL3-78B",
+    "date": "2025-04-14",
+    "score": 79.1,
+    "params": 78.4,
+    "family": "InternVL",
+    "benchmarks": {
+      "MMBench_V11": 87.7,
+      "MMStar": 73.4,
+      "MMMU_VAL": 72.2,
+      "MathVista": 79.0,
+      "OCRBench": 90.8,
+      "AI2D": 89.8,
+      "HallusionBench": 59.1,
+      "MMVet": 80.7
+    }
+  },
+  {
+    "name": "GPT-4.1-20250414",
+    "date": "2025-04-16",
+    "score": 75.9,
+    "params": 220.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 86.6,
+      "MMStar": 69.8,
+      "MMMU_VAL": 74.0,
+      "MathVista": 70.4,
+      "OCRBench": 83.4,
+      "AI2D": 85.9,
+      "HallusionBench": 58.5,
+      "MMVet": 78.8
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "GPT-4.1-mini-20250414",
+    "date": "2025-04-16",
+    "score": 68.9,
+    "params": 50.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 80.9,
+      "MMStar": 60.9,
+      "MMMU_VAL": 55.0,
+      "MathVista": 70.9,
+      "OCRBench": 84.0,
+      "AI2D": 76.0,
+      "HallusionBench": 49.3,
+      "MMVet": 74.3
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "GPT-4.1-nano-20250414",
+    "date": "2025-04-16",
+    "score": 57.5,
+    "params": 7.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 62.4,
+      "MMStar": 47.5,
+      "MMMU_VAL": 57.6,
+      "MathVista": 53.7,
+      "OCRBench": 71.0,
+      "AI2D": 68.0,
+      "HallusionBench": 36.9,
+      "MMVet": 62.8
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "Kimi-VL-A3B-Thinking",
+    "date": "2025-04-23",
+    "score": 65.9,
+    "params": 16.4,
+    "family": "Kimi",
+    "benchmarks": {
+      "MMBench_V11": 68.3,
+      "MMStar": 60.8,
+      "MMMU_VAL": 50.7,
+      "MathVista": 67.6,
+      "OCRBench": 82.5,
+      "AI2D": 77.5,
+      "HallusionBench": 52.3,
+      "MMVet": 67.4
+    }
+  },
+  {
+    "name": "SAIL-VL-1.5-2B",
+    "date": "2025-04-23",
+    "score": 67.0,
+    "params": 2.47,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 78.5,
+      "MMStar": 62.6,
+      "MMMU_VAL": 46.4,
+      "MathVista": 67.0,
+      "OCRBench": 89.1,
+      "AI2D": 83.7,
+      "HallusionBench": 50.0,
+      "MMVet": 58.8
+    }
+  },
+  {
+    "name": "SAIL-VL-1.5-8B",
+    "date": "2025-04-23",
+    "score": 72.4,
+    "params": 7.95,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 82.1,
+      "MMStar": 69.7,
+      "MMMU_VAL": 54.3,
+      "MathVista": 73.4,
+      "OCRBench": 88.9,
+      "AI2D": 87.5,
+      "HallusionBench": 54.5,
+      "MMVet": 69.0
+    }
+  },
+  {
+    "name": "SAIL-VL-1.6-8B",
+    "date": "2025-04-24",
+    "score": 73.6,
+    "params": 8.33,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 84.0,
+      "MMStar": 69.5,
+      "MMMU_VAL": 55.4,
+      "MathVista": 74.2,
+      "OCRBench": 90.5,
+      "AI2D": 87.5,
+      "HallusionBench": 54.4,
+      "MMVet": 73.3
+    }
+  },
+  {
+    "name": "SenseNova-V6-Pro",
+    "date": "2025-05-05",
+    "score": 80.4,
+    "params": 40.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 88.0,
+      "MMStar": 73.7,
+      "MMMU_VAL": 70.4,
+      "MathVista": 76.9,
+      "OCRBench": 89.5,
+      "AI2D": 89.2,
+      "HallusionBench": 67.1,
+      "MMVet": 88.2
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "QTuneVL1-2B",
+    "date": "2025-05-05",
+    "score": 59.9,
+    "params": 2.21,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 71.1,
+      "MMStar": 53.6,
+      "MMMU_VAL": 44.7,
+      "MathVista": 48.8,
+      "OCRBench": 80.6,
+      "AI2D": 75.2,
+      "HallusionBench": 42.4,
+      "MMVet": 63.0
+    }
+  },
+  {
+    "name": "CongRong-v2.0",
+    "date": "2025-05-20",
+    "score": 80.7,
+    "params": 14.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 88.1,
+      "MMStar": 75.3,
+      "MMMU_VAL": 75.6,
+      "MathVista": 76.8,
+      "OCRBench": 92.7,
+      "AI2D": 90.0,
+      "HallusionBench": 63.2,
+      "MMVet": 83.9
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "WeThink-Qwen2.5VL-7B",
+    "date": "2025-05-26",
+    "score": 72.5,
+    "params": 8.29,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 81.8,
+      "MMStar": 64.2,
+      "MMMU_VAL": 61.0,
+      "MathVista": 71.6,
+      "OCRBench": 89.0,
+      "AI2D": 84.0,
+      "HallusionBench": 55.3,
+      "MMVet": 73.2
+    }
+  },
+  {
+    "name": "valley2",
+    "date": "2025-05-30",
+    "score": 67.1,
+    "params": 8.88,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 81.0,
+      "MMStar": 60.0,
+      "MMMU_VAL": 56.8,
+      "MathVista": 61.7,
+      "OCRBench": 84.5,
+      "AI2D": 82.8,
+      "HallusionBench": 47.6,
+      "MMVet": 62.1
+    }
+  },
+  {
+    "name": "valley2_dpo",
+    "date": "2025-05-30",
+    "score": 69.3,
+    "params": 8.88,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 81.8,
+      "MMStar": 61.9,
+      "MMMU_VAL": 58.4,
+      "MathVista": 68.7,
+      "OCRBench": 85.8,
+      "AI2D": 83.0,
+      "HallusionBench": 52.4,
+      "MMVet": 62.3
+    }
+  },
+  {
+    "name": "Flash-VL-2B-Dynamic-ISS",
+    "date": "2025-05-30",
+    "score": 61.6,
+    "params": 2.53,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 75.8,
+      "MMStar": 53.8,
+      "MMMU_VAL": 45.6,
+      "MathVista": 61.7,
+      "OCRBench": 84.4,
+      "AI2D": 74.4,
+      "HallusionBench": 48.5,
+      "MMVet": 48.6
+    }
+  },
+  {
+    "name": "Long-VITA-16K",
+    "date": "2025-06-13",
+    "score": 61.1,
+    "params": 14.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 76.3,
+      "MMStar": 60.1,
+      "MMMU_VAL": 53.9,
+      "MathVista": 64.8,
+      "OCRBench": 76.1,
+      "AI2D": 80.9,
+      "HallusionBench": 45.5,
+      "MMVet": 31.0
+    }
+  },
+  {
+    "name": "HawkVL-2B",
+    "date": "2025-06-16",
+    "score": 52.8,
+    "params": 2.44,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 64.5,
+      "MMStar": 48.1,
+      "MMMU_VAL": 43.6,
+      "MathVista": 43.3,
+      "OCRBench": 76.3,
+      "AI2D": 66.6,
+      "HallusionBench": 40.9,
+      "MMVet": 38.9
+    }
+  },
+  {
+    "name": "granite-vision-3.1-2b-preview",
+    "date": "2025-06-20",
+    "score": 57.3,
+    "params": 2.98,
+    "family": "Granite",
+    "benchmarks": {
+      "MMBench_V11": 69.2,
+      "MMStar": 56.1,
+      "MMMU_VAL": 35.4,
+      "MathVista": 60.5,
+      "OCRBench": 78.3,
+      "AI2D": 77.7,
+      "HallusionBench": 41.4,
+      "MMVet": 39.6
+    }
+  },
+  {
+    "name": "granite-vision-3.2-2b",
+    "date": "2025-06-20",
+    "score": 57.9,
+    "params": 2.98,
+    "family": "Granite",
+    "benchmarks": {
+      "MMBench_V11": 70.8,
+      "MMStar": 54.6,
+      "MMMU_VAL": 39.0,
+      "MathVista": 59.7,
+      "OCRBench": 79.0,
+      "AI2D": 78.6,
+      "HallusionBench": 40.7,
+      "MMVet": 40.5
+    }
+  },
+  {
+    "name": "granite-vision-3.3-2b",
+    "date": "2025-06-20",
+    "score": 58.7,
+    "params": 2.98,
+    "family": "Granite",
+    "benchmarks": {
+      "MMBench_V11": 68.2,
+      "MMStar": 51.9,
+      "MMMU_VAL": 39.0,
+      "MathVista": 60.2,
+      "OCRBench": 82.0,
+      "AI2D": 76.6,
+      "HallusionBench": 47.0,
+      "MMVet": 45.0
+    }
+  },
+  {
+    "name": "MiMo-VL-7B",
+    "date": "2025-07-02",
+    "score": 65.6,
+    "params": 8.31,
+    "family": "MiMo",
+    "benchmarks": {
+      "MMBench_V11": 80.7,
+      "MMStar": 38.9,
+      "MMMU_VAL": 26.4,
+      "MathVista": 77.4,
+      "OCRBench": 82.9,
+      "AI2D": 82.8,
+      "HallusionBench": 63.8,
+      "MMVet": 72.2
+    }
+  },
+  {
+    "name": "Qwen2.5-VL-32B",
+    "date": "2025-07-02",
+    "score": 74.8,
+    "params": 33.5,
+    "family": "Qwen",
+    "benchmarks": {
+      "MMBench_V11": 84.0,
+      "MMStar": 70.3,
+      "MMMU_VAL": 68.9,
+      "MathVista": 72.8,
+      "OCRBench": 85.6,
+      "AI2D": 85.4,
+      "HallusionBench": 58.4,
+      "MMVet": 72.9
+    }
+  },
+  {
+    "name": "Kimi-VL-A3B-Thinking-2506",
+    "date": "2025-07-02",
+    "score": 74.3,
+    "params": 16.4,
+    "family": "Kimi",
+    "benchmarks": {
+      "MMBench_V11": 80.1,
+      "MMStar": 70.0,
+      "MMMU_VAL": 62.9,
+      "MathVista": 79.5,
+      "OCRBench": 82.3,
+      "AI2D": 83.1,
+      "HallusionBench": 59.8,
+      "MMVet": 77.0
+    }
+  },
+  {
+    "name": "BlueLM-2.5-3B",
+    "date": "2025-07-16",
+    "score": 70.8,
+    "params": 2.9,
+    "family": "BlueLM",
+    "benchmarks": {
+      "MMBench_V11": 74.6,
+      "MMStar": 67.8,
+      "MMMU_VAL": 58.7,
+      "MathVista": 76.7,
+      "OCRBench": 83.8,
+      "AI2D": 83.1,
+      "HallusionBench": 60.0,
+      "MMVet": 61.7
+    }
+  },
+  {
+    "name": "Ovis-U1-3B",
+    "date": "2025-07-20",
+    "score": 69.3,
+    "params": 3.64,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 77.9,
+      "MMStar": 61.3,
+      "MMMU_VAL": 50.6,
+      "MathVista": 68.9,
+      "OCRBench": 88.1,
+      "AI2D": 85.6,
+      "HallusionBench": 55.8,
+      "MMVet": 66.0
+    }
+  },
+  {
+    "name": "JT-VL-Chat-V3.0",
+    "date": "2025-08-04",
+    "score": 79.9,
+    "params": 7.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 87.5,
+      "MMStar": 82.1,
+      "MMMU_VAL": 68.7,
+      "MathVista": 72.8,
+      "OCRBench": 95.0,
+      "AI2D": 88.3,
+      "HallusionBench": 64.4,
+      "MMVet": 80.3
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "VARCO-VISION-2.0-1.7B",
+    "date": "2025-08-04",
+    "score": 59.2,
+    "params": 2.12,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 72.8,
+      "MMStar": 52.5,
+      "MMMU_VAL": 44.2,
+      "MathVista": 55.8,
+      "OCRBench": 80.8,
+      "AI2D": 75.2,
+      "HallusionBench": 38.6,
+      "MMVet": 53.4
+    }
+  },
+  {
+    "name": "VARCO-VISION-2.0-14B",
+    "date": "2025-08-04",
+    "score": 72.5,
+    "params": 15.2,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 83.7,
+      "MMStar": 66.9,
+      "MMMU_VAL": 61.9,
+      "MathVista": 73.2,
+      "OCRBench": 86.9,
+      "AI2D": 85.7,
+      "HallusionBench": 53.2,
+      "MMVet": 68.9
+    }
+  },
+  {
+    "name": "QTuneVL1.5-2B",
+    "date": "2025-08-11",
+    "score": 64.6,
+    "params": 2.09,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 77.8,
+      "MMStar": 60.8,
+      "MMMU_VAL": 48.7,
+      "MathVista": 56.1,
+      "OCRBench": 85.8,
+      "AI2D": 78.6,
+      "HallusionBench": 43.4,
+      "MMVet": 65.9
+    }
+  },
+  {
+    "name": "QTuneVL1.5-3B",
+    "date": "2025-08-11",
+    "score": 66.1,
+    "params": 3.75,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 77.3,
+      "MMStar": 57.1,
+      "MMMU_VAL": 53.4,
+      "MathVista": 64.4,
+      "OCRBench": 83.9,
+      "AI2D": 81.2,
+      "HallusionBench": 49.0,
+      "MMVet": 62.8
+    }
+  },
+  {
+    "name": "R-4B",
+    "date": "2025-08-11",
+    "score": 75.5,
+    "params": 4.82,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 82.8,
+      "MMStar": 72.6,
+      "MMMU_VAL": 64.7,
+      "MathVista": 78.0,
+      "OCRBench": 83.7,
+      "AI2D": 86.2,
+      "HallusionBench": 60.0,
+      "MMVet": 76.2
+    }
+  },
+  {
+    "name": "GPT-5-20250807",
+    "date": "2025-08-14",
+    "score": 79.9,
+    "params": 300.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 86.6,
+      "MMStar": 75.7,
+      "MMMU_VAL": 81.8,
+      "MathVista": 81.9,
+      "OCRBench": 80.7,
+      "AI2D": 89.5,
+      "HallusionBench": 65.2,
+      "MMVet": 77.6
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "GPT-5-nano-20250807",
+    "date": "2025-08-14",
+    "score": 72.2,
+    "params": 7.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 79.2,
+      "MMStar": 68.3,
+      "MMMU_VAL": 72.6,
+      "MathVista": 73.1,
+      "OCRBench": 74.7,
+      "AI2D": 81.4,
+      "HallusionBench": 60.9,
+      "MMVet": 67.4
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "GPT-5-mini-20250807",
+    "date": "2025-08-14",
+    "score": 78.0,
+    "params": 50.0,
+    "family": "OpenAI",
+    "benchmarks": {
+      "MMBench_V11": 86.2,
+      "MMStar": 73.2,
+      "MMMU_VAL": 78.7,
+      "MathVista": 79.2,
+      "OCRBench": 82.8,
+      "AI2D": 86.7,
+      "HallusionBench": 62.5,
+      "MMVet": 74.6
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "SenseNova-V6-5-Pro",
+    "date": "2025-09-03",
+    "score": 82.2,
+    "params": 40.0,
+    "family": "Other",
+    "benchmarks": {
+      "MMBench_V11": 87.3,
+      "MMStar": 76.1,
+      "MMMU_VAL": 77.0,
+      "MathVista": 82.8,
+      "OCRBench": 88.5,
+      "AI2D": 90.2,
+      "HallusionBench": 66.7,
+      "MMVet": 89.4
+    },
+    "paramsEstimated": true
+  },
+  {
+    "name": "BlueLM-2.6-3B",
+    "date": "2025-09-17",
+    "score": 78.4,
+    "params": 3.0,
+    "family": "BlueLM",
+    "benchmarks": {
+      "MMBench_V11": 86.4,
+      "MMStar": 80.1,
+      "MMMU_VAL": 62.4,
+      "MathVista": 82.3,
+      "OCRBench": 88.1,
+      "AI2D": 86.1,
+      "HallusionBench": 63.1,
+      "MMVet": 78.5
+    }
+  }
 ]
