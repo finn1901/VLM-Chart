@@ -121,7 +121,7 @@
   {
     "name": "IDEFICS-9B-Instruct",
     "date": "2023-07-25",
-    "score": 27.1,
+    "score": 27.2,
     "params": 9.0,
     "family": "Other",
     "benchmarks": {
@@ -1104,7 +1104,7 @@
   {
     "name": "RekaEdge",
     "date": "2024-05-31",
-    "score": 46.6,
+    "score": 46.7,
     "params": 7.0,
     "family": "Other",
     "benchmarks": {
@@ -1568,7 +1568,7 @@
   {
     "name": "Cambrian-13B",
     "date": "2024-07-29",
-    "score": 53.4,
+    "score": 53.3,
     "params": 13.0,
     "family": "Other",
     "benchmarks": {
@@ -4057,7 +4057,7 @@
   {
     "name": "AKI-4B",
     "date": "2025-03-25",
-    "score": 39.5,
+    "score": 39.4,
     "params": 4.33,
     "family": "Other",
     "benchmarks": {
